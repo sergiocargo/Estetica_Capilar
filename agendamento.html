@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agendamento - Estética Capilar</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  
+  <style>
+    body {
+      padding-top: 70px;
+      background-color: #fff8f0;
+    }
+
+    .navbar-brand {
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+
+    .agendamento-section {
+      padding: 40px 0;
+    }
+
+    .card-agenda {
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+      background-color: #fff;
+    }
+
+    .card-agenda h5 {
+      font-weight: bold;
+    }
+
+    .btn-agendar {
+      background-color: #ff6f61;
+      color: white;
+    }
+
+    .carousel-inner img {
+      height: 300px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .pagination {
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    footer {
+      background-color: #343a40;
+      color: white;
+      padding: 20px 0;
+    }
+
+    footer a {
+      color: white;
+      margin: 0 10px;
+      font-size: 1.5rem;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Estética Capilar</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="#">Agendamento</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Serviços</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Contato</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Agendamento -->
+  <section class="agendamento-section">
+    <div class="container">
+      <div class="row justify-content-center g-4">
+
+        <!-- Card Calendário -->
+        <div class="col-md-5">
+          <div class="card-agenda text-center">
+            <h5>Escolha a Data</h5>
+            <input type="date" class="form-control mt-3">
+          </div>
+        </div>
+
+        <!-- Card Horários -->
+        <div class="col-md-5">
+          <div class="card-agenda text-center">
+            <h5>Horários Disponíveis</h5>
+            <div class="d-grid gap-2 mt-3">
+              <button class="btn btn-outline-primary">09:00</button>
+              <button class="btn btn-outline-primary">10:00</button>
+              <button class="btn btn-outline-primary">11:00</button>
+              <button class="btn btn-outline-primary">14:00</button>
+              <button class="btn btn-outline-primary">15:00</button>
+              <button class="btn btn-outline-primary">16:00</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Carousel de Imagens -->
+      <div id="carouselAgendamento" class="carousel slide mt-5" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="imginternet/imgint1.jpg" class="d-block w-100" alt="Imagem 1">
+          </div>
+          <div class="carousel-item">
+            <img src="imginternet/imgint2.jpg" class="d-block w-100" alt="Imagem 2">
+          </div>
+          <div class="carousel-item">
+            <img src="imginternet/imgint3.jpg" class="d-block w-100" alt="Imagem 3">
+          </div>
+        </div>
+        <!-- Botões de controle -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselAgendamento" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselAgendamento" data-bs-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </button>
+      </div>
+
+      <!-- Paginação -->
+      <nav aria-label="Agendamento pagination" class="mt-4">
+        <ul class="pagination">
+          <li class="page-item"><a class="page-link" href="index.html">⬅ Voltar</a></li>
+          <li class="page-item active"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">Próximo ➡</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center">
+    <p>© 2025 Estética Capilar - Todos os direitos reservados</p>
+    <div>
+      <a href="https://wa.me/5599999999999" target="_blank"><i class="bi bi-whatsapp"></i></a>
+      <a href="https://instagram.com/seuinstagram" target="_blank"><i class="bi bi-instagram"></i></a>
+      <a href="https://facebook.com/seufacebook" target="_blank"><i class="bi bi-facebook"></i></a>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

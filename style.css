@@ -1,0 +1,15 @@
+<style>
+  /* Tamanho do logo independente */
+  .logo {
+    max-width: 100px;  /* ajusta o tamanho do logo */
+    height: auto;      /* mantém proporção */
+    display: block;
+    margin: 0 auto;    /* centraliza */
+  }
+
+  .logo-container {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+</style>

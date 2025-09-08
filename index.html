@@ -1,17 +1,191 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Estética Calibrar - Dr. Jéssica</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Estética Capilar</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- CSS personalizado -->
+  <style>
+    body {
+      padding-top: 70px;
+    }
+
+    /* Logo independente */
+    .logo {
+      max-width: 80px; /* Ajusta o tamanho do logo */
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .logo-container {
+      text-align: center;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+
+    /* Carousel */
+    .carousel-inner img {
+      height: 400px;
+      object-fit: cover;
+    }
+
+    /* Botões personalizados */
+    .btn-custom {
+      background-color: #ff6f61;
+      color: white;
+    }
+
+    .welcome-card {
+      text-align: center;
+      padding: 40px 20px;
+      background-color: #f8f9fa;
+      border-radius: 10px;
+      margin: 0 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Seção de serviços */
+    .card {
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-img-top {
+      height: 200px;
+      object-fit: cover;
+    }
+
+    footer a {
+      text-decoration: none;
+    }
+  </style>
 </head>
+
 <body>
-  <h1>Dr. Jéssica</h1>
-  <p>Bem-vinda à Estética Calibrar 💆✨</p>
 
-  <button onclick="mostrarMensagem()">Clique aqui</button>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Estética Capilar</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Serviços</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Galeria</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Contato</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-  <script src="script.js"></script>
+  
+  <!-- Welcome Card -->
+<section class="welcome-section py-4">
+  <div class="container d-flex align-items-center justify-content-center flex-wrap gap-3">
+    
+    <!-- Logo ao lado do card -->
+    <div class="logo-container">
+      <img src="img/Logotipo.jpeg" alt="Logo Estética Capilar" class="logo">
+    </div>
+
+    <div class="welcome-card">
+      <h1>Bem-vindo à Estética Capilar</h1>
+      <a href="agendamento.html" class="btn btn-success btn-lg mt-3">Agendar</a>
+    </div>
+
+  </div>
+</section>
+
+
+  <!-- Carousel -->
+  <div id="carouselExample" class="carousel slide mt-4">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="img/img6.jpeg" class="d-block w-100" alt="Slide 1">
+      </div>
+      <div class="carousel-item">
+        <img src="img/img2.jpeg" class="d-block w-100" alt="Slide 2">
+      </div>
+      <div class="carousel-item">
+        <img src="img/img7.jpeg" class="d-block w-100" alt="Slide 3">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </div>
+
+  <!-- Seção de Serviços -->
+  <section class="py-5 bg-light">
+    <div class="container">
+      <h2 class="text-center mb-4">Nossos Serviços</h2>
+      <div class="row">
+        <div class="col-md-4 mb-3">
+          <div class="card">
+            <img src="img/img1.jpeg" class="card-img-top" alt="Serviço 1">
+            <div class="card-body text-center">
+              <h5 class="card-title">Corte</h5>
+              <p class="card-text">Cortes modernos e personalizados para todos os estilos.</p>
+              <a href="#" class="btn btn-custom">Agendar</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-3">
+          <div class="card">
+            <img src="img/img7.jpeg" class="card-img-top" alt="Serviço 2">
+            <div class="card-body text-center">
+              <h5 class="card-title">Tratamento Capilar</h5>
+              <p class="card-text">Recupere a saúde e brilho do seu cabelo com nossos tratamentos.</p>
+              <a href="#" class="btn btn-custom">Agendar</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-3">
+          <div class="card">
+            <img src="img/img9.jpeg" class="card-img-top" alt="Serviço 3">
+            <div class="card-body text-center">
+              <h5 class="card-title">Coloração</h5>
+              <p class="card-text">Cores vibrantes e técnicas modernas de coloração.</p>
+              <a href="#" class="btn btn-custom">Agendar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center py-4 mt-5">
+    <div class="container">
+      <p class="mb-2">© 2025 Estética Capilar - Todos os direitos reservados</p>
+      <div>
+        <a href="https://wa.me/5599999999999" target="_blank" class="text-white mx-2 fs-4">
+          <i class="bi bi-whatsapp"></i>
+        </a>
+        <a href="https://instagram.com/seuinstagram" target="_blank" class="text-white mx-2 fs-4">
+          <i class="bi bi-instagram"></i>
+        </a>
+        <a href="https://facebook.com/seufacebook" target="_blank" class="text-white mx-2 fs-4">
+          <i class="bi bi-facebook"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
