@@ -7,53 +7,59 @@
   <title>Estética Capilar</title>
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 
-  <!-- CSS personalizado -->
   <style>
     body {
+      background-color: #fff8f0;
       padding-top: 70px;
     }
 
-    /* Logo independente */
-    .logo {
-      max-width: 80px; /* Ajusta o tamanho do logo */
-      height: auto;
-      display: block;
-      margin: 0 auto;
+    /* Navbar */
+    .navbar-brand {
+      font-weight: bold;
+      font-size: 1.5rem;
     }
 
-    .logo-container {
+    /* Logo no topo */
+    .logo {
+      max-width: 80px;
+      height: auto;
+    }
+
+    /* Welcome Card */
+    .welcome-card {
       text-align: center;
-      margin-top: 20px;
-      margin-bottom: 20px;
+      padding: 40px 20px;
+      background-color: #f8f9fa;
+      border-radius: 10px;
+      margin: 20px auto;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .welcome-card h1 {
+      font-size: 2rem;
     }
 
     /* Carousel */
     .carousel-inner img {
       height: 400px;
       object-fit: cover;
-    }
-
-    /* Botões personalizados */
-    .btn-custom {
-      background-color: #ff6f61;
-      color: white;
-    }
-
-    .welcome-card {
-      text-align: center;
-      padding: 40px 20px;
-      background-color: #f8f9fa;
       border-radius: 10px;
-      margin: 0 20px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
-    /* Seção de serviços */
+    /* Cards Serviços */
     .card {
       border-radius: 10px;
       overflow: hidden;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
     .card-img-top {
@@ -61,50 +67,138 @@
       object-fit: cover;
     }
 
+    .btn-custom {
+      background-color: #ff6f61;
+      color: white;
+    }
+
+    footer {
+      background-color: #343a40;
+      color: white;
+      padding: 20px 0;
+    }
+
     footer a {
-      text-decoration: none;
+      color: white;
+      margin: 0 10px;
+      font-size: 1.5rem;
     }
   </style>
 </head>
 
 <body>
-
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="#">Estética Capilar</a>
+      <a class="navbar-brand" href="index.html">Estética Capilar</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Serviços</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Galeria</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Contato</a></li>
+          <li class="nav-item">
+            <a class="nav-link <?php if($page=='home'){echo 'active';} ?>" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link <?php if($page=='servico'){echo 'active';} ?>" href="servico.html">Serviços</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link <?php if($page=='galerias'){echo 'active';} ?>" href="galerias.html">Galeria</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link <?php if($page=='contato'){echo 'active';} ?>" href="contato.html">Contato</a>
+          </li>
         </ul>
       </div>
     </div>
   </nav>
 
-  
-  <!-- Welcome Card -->
-<section class="welcome-section py-4">
-  <div class="container d-flex align-items-center justify-content-center flex-wrap gap-3">
-    
-    <!-- Logo ao lado do card -->
-    <div class="logo-container">
-      <img src="img/Logotipo.jpeg" alt="Logo Estética Capilar" class="logo">
-    </div>
 
-    <div class="welcome-card">
-      <h1>Bem-vindo à Estética Capilar</h1>
-      <a href="agendamento.html" class="btn btn-success btn-lg mt-3">Agendar</a>
-    </div>
-
+  <!-- Botões para mudar cor -->
+  <div class="d-flex gap-2 mt-3">
+    <span class="color-dot" style="background-color:#ff6f61;" title="Cor 1"></span>
+    <span class="color-dot" style="background-color:#f7c59f;" title="Cor 2"></span>
+    <span class="color-dot" style="background-color:#6fbf73;" title="Cor 3"></span>
+    <span class="color-dot" style="background-color:#4aa3df;" title="Cor 4"></span>
   </div>
-</section>
 
+  <style>
+    .color-dot {
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      cursor: pointer;
+      border: 2px solid #fff;
+      box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+      transition: transform 0.2s;
+    }
+
+    .color-dot:hover {
+      transform: scale(1.2);
+    }
+
+    .color-dot.selected {
+      border: 3px solid #000;
+      /* indica cor selecionada */
+    }
+  </style>
+
+  <script>
+    const dots = document.querySelectorAll('.color-dot');
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        dots.forEach(d => d.classList.remove('selected'));
+        dot.classList.add('selected');
+      });
+    });
+  </script>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    function mudarTema(cor) {
+      document.body.style.backgroundColor = cor;
+
+      const navbar = document.querySelector(".navbar");
+      const footer = document.querySelector("footer");
+
+      // Reseta classes antigas
+      navbar.classList.remove("bg-light", "bg-dark", "bg-primary", "bg-danger", "bg-success", "navbar-dark", "navbar-light");
+      footer.classList.remove("bg-light", "bg-dark", "bg-primary", "bg-danger", "bg-success", "text-light", "text-dark");
+
+      if (cor === "#ffe6f0") {
+        navbar.classList.add("bg-danger", "navbar-dark");
+        footer.classList.add("bg-danger", "text-light");
+      } else if (cor === "#e6f0ff") {
+        navbar.classList.add("bg-primary", "navbar-dark");
+        footer.classList.add("bg-primary", "text-light");
+      } else if (cor === "#d9f7d9") {
+        navbar.classList.add("bg-success", "navbar-dark");
+        footer.classList.add("bg-success", "text-light");
+      } else if (cor === "#000000") {
+        navbar.classList.add("bg-dark", "navbar-dark");
+        footer.classList.add("bg-dark", "text-light");
+      } else {
+        navbar.classList.add("bg-light", "navbar-light");
+        footer.classList.add("bg-light", "text-dark");
+      }
+    }
+  </script>
+  <!--!Welcome Card -->
+  <section class="welcome-section">
+    <div class="welcome-card">
+      <img src="img/WhatsApp Image 2025-09-09 at 16.49.19.jpeg" alt="Logo Estética Capilar" class="logo">
+      <img src="img/Logotipo.jpeg" alt="Logo Estética Capilar" class="logo">
+      <div>
+        <h1>Bem-vindo à Estética Capilar</h1>
+        <div class="mt-3">
+          <a href="agendamento.html" class="btn btn-success btn-lg me-2">Agendar</a>
+          <a href="cadastro.html" class="btn btn-warning btn-lg">Cadastre-se</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- Carousel -->
   <div id="carouselExample" class="carousel slide mt-4">
@@ -136,9 +230,10 @@
           <div class="card">
             <img src="img/img1.jpeg" class="card-img-top" alt="Serviço 1">
             <div class="card-body text-center">
-              <h5 class="card-title">Corte</h5>
-              <p class="card-text">Cortes modernos e personalizados para todos os estilos.</p>
-              <a href="#" class="btn btn-custom">Agendar</a>
+              <h5 class="card-title">Melhorar a saúde capilar</h5>
+              <p class="card-text">Tratar e prevenir problemas como queda de cabelo, calvície, seborreia, fios
+                quebradiços e couro cabeludo desequilibrado.</p>
+              <a href="agendamento.html" class="btn btn-custom">Agendar</a>
             </div>
           </div>
         </div>
@@ -146,9 +241,10 @@
           <div class="card">
             <img src="img/img7.jpeg" class="card-img-top" alt="Serviço 2">
             <div class="card-body text-center">
-              <h5 class="card-title">Tratamento Capilar</h5>
-              <p class="card-text">Recupere a saúde e brilho do seu cabelo com nossos tratamentos.</p>
-              <a href="#" class="btn btn-custom">Agendar</a>
+              <h5 class="card-title">Tecnologias</h5>
+              <p class="card-text">Fotobioestimulação (LED) para aumentar o metabolismo celular, melhorar circulação e
+                nutrição do couro cabeludo.</p>
+              <a href="agendamento.html" class="btn btn-custom">Agendar</a>
             </div>
           </div>
         </div>
@@ -156,9 +252,10 @@
           <div class="card">
             <img src="img/img9.jpeg" class="card-img-top" alt="Serviço 3">
             <div class="card-body text-center">
-              <h5 class="card-title">Coloração</h5>
-              <p class="card-text">Cores vibrantes e técnicas modernas de coloração.</p>
-              <a href="#" class="btn btn-custom">Agendar</a>
+              <h5 class="card-title">Restaurar a qualidade dos fios</h5>
+              <p class="card-text">Tratamentos como hidratação e reconstrução para restaurar saúde e vitalidade de
+                cabelos danificados.</p>
+              <a href="agendamento.html" class="btn btn-custom">Agendar</a>
             </div>
           </div>
         </div>
@@ -167,25 +264,50 @@
   </section>
 
   <!-- Footer -->
-  <footer class="bg-dark text-white text-center py-4 mt-5">
-    <div class="container">
-      <p class="mb-2">© 2025 Estética Capilar - Todos os direitos reservados</p>
-      <div>
-        <a href="https://wa.me/5599999999999" target="_blank" class="text-white mx-2 fs-4">
-          <i class="bi bi-whatsapp"></i>
-        </a>
-        <a href="https://instagram.com/seuinstagram" target="_blank" class="text-white mx-2 fs-4">
-          <i class="bi bi-instagram"></i>
-        </a>
-        <a href="https://facebook.com/seufacebook" target="_blank" class="text-white mx-2 fs-4">
-          <i class="bi bi-facebook"></i>
-        </a>
-      </div>
+  <footer class="text-center">
+    <p>© 2025 Estética Capilar - Todos os direitos reservados</p>
+    <div>
+      <a href="https://wa.me/message/QDJMIC6AWYPXH1" target="_blank"><i class="bi bi-whatsapp"></i></a>
+      <a href="https://www.instagram.com/revitalize_terapiacapilar?igsh=NzcyM3pqazBwd2U4&utm_source=qr"
+        target="_blank"><i class="bi bi-instagram"></i></a>
+      <a href="https://facebook.com/seufacebook" target="_blank"><i class="bi bi-facebook"></i></a>
     </div>
   </footer>
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Navbar muda cor ao rolar -->
+  <script>
+    window.addEventListener('scroll', function () {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 100) {
+        navbar.style.backgroundColor = '#ff6f61'; // cor ao rolar
+      } else {
+        navbar.style.backgroundColor = 'transparent'; // cor inicial
+      }
+    });
+  </script>
+  <script>
+    <script>
+      function mudarTema(cor) {
+        document.body.style.backgroundColor = cor;
+
+      const navbar = document.querySelector(".navbar");
+      if (cor === "#ffe6f0") {
+        navbar.classList.add("bg-pink");
+      navbar.classList.remove("bg-blue", "bg-light");
+    } else if (cor === "#e6f0ff") {
+        navbar.classList.add("bg-blue");
+      navbar.classList.remove("bg-pink", "bg-light");
+    } else {
+        navbar.classList.add("bg-light");
+      navbar.classList.remove("bg-pink", "bg-blue");
+    }
+  }
+  </script>
+
+
 </body>
 
 </html>

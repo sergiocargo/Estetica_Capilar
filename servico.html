@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Serviços - Estética Capilar</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    body { padding-top: 70px; background-color: #fff8f0; }
+
+    .navbar-brand { font-weight: bold; font-size: 1.5rem; }
+
+    .card-service {
+      border-radius: 15px; padding: 15px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      background-color: #fff;
+      transition: transform 0.3s;
+    }
+    .card-service:hover { transform: scale(1.03); }
+    .card-service img { border-radius: 10px; height: 200px; object-fit: cover; }
+
+    .btn-custom { background-color: #ff6f61; color: white; }
+
+    .pagination { justify-content: center; margin-top: 30px; }
+
+    footer { background-color: #343a40; color: white; padding: 20px 0; }
+    footer a { color: white; margin: 0 10px; font-size: 1.5rem; }
+
+    /* Bolinhas de cores */
+    .color-circle {
+      width: 30px; height: 30px;
+      border-radius: 50%;
+      margin: 0 5px;
+      cursor: pointer;
+      border: 2px solid #ccc;
+      transition: transform 0.2s;
+    }
+    .color-circle:hover { transform: scale(1.2); border-color: #333; }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Estética Capilar</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="servico.html">Serviços</a></li>
+          <li class="nav-item"><a class="nav-link" href="galerias.html">Galeria</a></li>
+          <li class="nav-item"><a class="nav-link" href="contato.html">Contato</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Bolinhas de cores para tema -->
+  <div class="d-flex justify-content-center mb-4">
+    <span class="color-circle" style="background-color:#fff8f0;" onclick="mudarTema('#fff8f0')"></span>
+    <span class="color-circle" style="background-color:#ffe6f0;" onclick="mudarTema('#ffe6f0')"></span>
+    <span class="color-circle" style="background-color:#e6f0ff;" onclick="mudarTema('#e6f0ff')"></span>
+    <span class="color-circle" style="background-color:#d9f7d9;" onclick="mudarTema('#d9f7d9')"></span>
+    <span class="color-circle" style="background-color:#000000;" onclick="mudarTema('#000000')"></span>
+  </div>
+
+  <!-- Seção Serviços -->
+  <section class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-5">Nossos Serviços</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card-service text-center">
+            <img src="https://images.unsplash.com/photo-1598281259747-65f8d2643a0a?auto=format&fit=crop&w=600&q=80" alt="Corte de Cabelo">
+            <div class="card-body">
+              <h5 class="card-title mt-3">Corte de Cabelo</h5>
+              <p class="card-text">Cortes modernos e personalizados para todos os estilos, desde clássicos até tendências atuais.</p>
+              <a href="agendamento.html" class="btn btn-custom">Agendar</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card-service text-center">
+            <img src="https://images.unsplash.com/photo-1600180758893-cd66f4c0f0da?auto=format&fit=crop&w=600&q=80" alt="Tratamento Capilar">
+            <div class="card-body">
+              <h5 class="card-title mt-3">Tratamento Capilar</h5>
+              <p class="card-text">Recupere a saúde, brilho e maciez do seu cabelo com nossos tratamentos capilares profissionais.</p>
+              <a href="agendamento.html" class="btn btn-custom">Agendar</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card-service text-center">
+            <img src="https://images.unsplash.com/photo-1588776814546-1f1339f6b042?auto=format&fit=crop&w=600&q=80" alt="Coloração">
+            <div class="card-body">
+              <h5 class="card-title mt-3">Coloração</h5>
+              <p class="card-text">Técnicas modernas de coloração e mechas, garantindo cores vibrantes e saudáveis.</p>
+              <a href="agendamento.html" class="btn btn-custom">Agendar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Paginação -->
+      <nav aria-label="Serviços pagination">
+        <ul class="pagination mt-4">
+          <li class="page-item"><a class="page-link" href="index.html">Anterior</a></li>
+          <li class="page-item"><a class="page-link" href="galerias.html">Próximo</a></li>
+        </ul>
+      </nav>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center">
+    <p>© 2025 Estética Capilar - Todos os direitos reservados</p>
+    <div>
+      <a href="https://wa.me/5599999999999" target="_blank"><i class="bi bi-whatsapp"></i></a>
+      <a href="https://instagram.com/seuinstagram" target="_blank"><i class="bi bi-instagram"></i></a>
+      <a href="https://facebook.com/seufacebook" target="_blank"><i class="bi bi-facebook"></i></a>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    function mudarTema(cor) {
+      document.body.style.backgroundColor = cor;
+      const navbar = document.querySelector(".navbar");
+      const footer = document.querySelector("footer");
+
+      navbar.classList.remove("bg-light","bg-dark","bg-primary","bg-danger","bg-success","navbar-dark","navbar-light");
+      footer.style.backgroundColor = cor;
+
+      if(cor === "#ffe6f0") navbar.classList.add("bg-danger");
+      else if(cor === "#e6f0ff") navbar.classList.add("bg-primary");
+      else if(cor === "#d9f7d9") navbar.classList.add("bg-success");
+      else if(cor === "#000000") navbar.classList.add("bg-dark","navbar-dark");
+      else navbar.classList.add("bg-light","navbar-light");
+    }
+  </script>
+
+</body>
+</html>

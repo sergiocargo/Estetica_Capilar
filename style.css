@@ -1,15 +1,13 @@
-<style>
-  /* Tamanho do logo independente */
-  .logo {
-    max-width: 100px;  /* ajusta o tamanho do logo */
-    height: auto;      /* mantém proporção */
-    display: block;
-    margin: 0 auto;    /* centraliza */
-  }
-
-  .logo-container {
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
-  }
-</style>
+.color-circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+  border: 2px solid #ccc;
+  transition: transform 0.2s;
+}
+.color-circle:hover {
+  transform: scale(1.2);
+  border-color: #333;
+}
