@@ -1,3 +1,4 @@
+
 .color-circle {
   width: 30px;
   height: 30px;
@@ -10,4 +11,40 @@
 .color-circle:hover {
   transform: scale(1.2);
   border-color: #333;
+=======
+body { 
+  font-family: Arial, sans-serif; 
+  margin: 0; 
+  padding: 20px;
+  background-color: #f0f4f8;
+}
+h1 { text-align: center; color: #333; }
+h2 { margin-top: 20px; color: #222; }
+section { 
+  background-color: #fff;
+  padding: 15px; 
+  margin-bottom: 20px; 
+  border-radius: 10px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+input, button, select { 
+  padding: 8px; 
+  margin: 5px 0; 
+  width: 100%; 
+  max-width: 300px; 
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+button { 
+  background-color: #4CAF50; 
+  color: white; 
+  border: none; 
+  cursor: pointer; 
+}
+button:hover { background-color: #45a049; }
+table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+@media(max-width:600px){
+  input, button, select { width: 100%; }
+>>>>>>> a7b6314f297e3256231e7d377941fa6f7f505029
 }
