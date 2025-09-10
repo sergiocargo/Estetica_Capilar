@@ -1,127 +1,77 @@
+// ==========================
+// script.js - Estética Capilar
+// ==========================
 
-function mudarTema(cor) {
-  document.body.style.backgroundColor = cor;
+// Mudança de cores via dots
+const dots = document.querySelectorAll('.color-dot');
 
-  const navbar = document.querySelector(".navbar");
-  const footer = document.querySelector("footer");
+dots.forEach(dot => {
+  dot.addEventListener('click', () => {
+    // Remove 'selected' de todos
+    dots.forEach(d => d.classList.remove('selected'));
+    // Adiciona 'selected' no clicado
+    dot.classList.add('selected');
 
-  // Reset classes
-  navbar.classList.remove("bg-light", "bg-dark", "bg-primary", "bg-danger", "bg-success", "navbar-dark", "navbar-light");
-  footer.style.backgroundColor = cor;
+    // Muda cor de fundo do body conforme o dot clicado
+    document.body.style.backgroundColor = dot.style.backgroundColor;
 
-  if (cor === "#ffe6f0") {
-    navbar.classList.add("bg-danger");
-  } else if (cor === "#e6f0ff") {
-    navbar.classList.add("bg-primary");
-  } else if (cor === "#d9f7d9") {
-    navbar.classList.add("bg-success");
-  } else if (cor === "#000000") {
-    navbar.classList.add("bg-dark", "navbar-dark");
-  } else {
-    navbar.classList.add("bg-light", "navbar-light");
-  }
-}
-=======
-// ===== Arrays =====
-let clientes = JSON.parse(localStorage.getItem("clientes")) || [];
-let produtos = JSON.parse(localStorage.getItem("produtos")) || [];
-let vendas = JSON.parse(localStorage.getItem("vendas")) || [];
-
-// ===== CLIENTES =====
-function adicionarCliente() {
-  const nome = document.getElementById("clienteNome").value;
-  const telefone = document.getElementById("clienteTelefone").value;
-  const dias = document.getElementById("clienteDias").value;
-  if (!nome || !telefone || !dias) { alert("Preencha todos os campos do cliente!"); return; }
-  clientes.push({ nome, telefone, dias });
-  localStorage.setItem("clientes", JSON.stringify(clientes));
-  atualizarTabelaClientes();
-  limparCamposCliente();
-}
-function atualizarTabelaClientes() {
-  const tbody = document.querySelector("#tabelaClientes tbody");
-  tbody.innerHTML = "";
-  clientes.forEach(c => { tbody.innerHTML += `<tr><td>${c.nome}</td><td>${c.telefone}</td><td>${c.dias}</td></tr>`; });
-}
-function limparCamposCliente() {
-  document.getElementById("clienteNome").value = "";
-  document.getElementById("clienteTelefone").value = "";
-  document.getElementById("clienteDias").value = "";
-}
-
-// ===== PRODUTOS =====
-function adicionarProduto() {
-  const codigo = document.getElementById("produtoCodigo").value;
-  const nome = document.getElementById("produtoNome").value;
-  const preco = parseFloat(document.getElementById("produtoPreco").value);
-  const qtd = parseInt(document.getElementById("produtoQtd").value);
-
-  if (!codigo || !nome || isNaN(preco) || isNaN(qtd)) { alert("Preencha todos os campos do produto corretamente!"); return; }
-
-  if (produtos.some(p => p.codigo === codigo)) { alert("Código de barras já cadastrado!"); return; }
-
-  produtos.push({ codigo, nome, preco, qtd });
-  localStorage.setItem("produtos", JSON.stringify(produtos));
-  atualizarTabelaProdutos();
-  atualizarSelectProduto();
-  limparCamposProduto();
-}
-function atualizarTabelaProdutos() {
-  const tbody = document.querySelector("#tabelaProdutos tbody");
-  tbody.innerHTML = "";
-  produtos.forEach(p => { tbody.innerHTML += `<tr><td>${p.codigo}</td><td>${p.nome}</td><td>R$ ${p.preco.toFixed(2)}</td><td>${p.qtd}</td></tr>`; });
-}
-function limparCamposProduto() {
-  document.getElementById("produtoCodigo").value = "";
-  document.getElementById("produtoNome").value = "";
-  document.getElementById("produtoPreco").value = "";
-  document.getElementById("produtoQtd").value = "";
-}
-function atualizarSelectProduto() {
-  const select = document.getElementById("vendaProduto");
-  select.innerHTML = "";
-  produtos.forEach((p,i)=>{ select.innerHTML += `<option value="${i}">${p.nome} - R$ ${p.preco.toFixed(2)} (Estoque: ${p.qtd})</option>`; });
-}
-
-// ===== PDV =====
-document.getElementById("vendaCodigo").addEventListener("input", function() {
-  const codigo = this.value.trim();
-  const idx = produtos.findIndex(p => p.codigo === codigo);
-  if (idx >= 0) document.getElementById("vendaProduto").value = idx;
+    // Opcional: mudar também cores de botões ou cards
+    const buttons = document.querySelectorAll('.btn-custom, .btn-success, .btn-warning');
+    buttons.forEach(btn => {
+      btn.style.backgroundColor = dot.style.backgroundColor;
+      btn.style.borderColor = dot.style.backgroundColor;
+    });
+  });
 });
 
-function registrarVenda() {
-  const idx = parseInt(document.getElementById("vendaProduto").value);
-  const qtdVenda = parseInt(document.getElementById("vendaQtd").value);
-  if (isNaN(qtdVenda) || qtdVenda <= 0) { alert("Digite uma quantidade válida!"); return; }
+// ==========================
+// Função de popup para agendamento
+// ==========================
+function showAgendamentoPopup() {
+  const popup = document.createElement('div');
+  popup.id = 'agendamento-popup';
+  popup.style.position = 'fixed';
+  popup.style.top = '50%';
+  popup.style.left = '50%';
+  popup.style.transform = 'translate(-50%, -50%)';
+  popup.style.backgroundColor = '#fff';
+  popup.style.padding = '20px';
+  popup.style.boxShadow = '0 4px 12px rgba(0,0,0,0.3)';
+  popup.style.borderRadius = '10px';
+  popup.innerHTML = `
+    <h3>Agendamento</h3>
+    <p>Deseja agendar seu horário agora?</p>
+    <button id="confirmAgendamento" class="btn btn-success me-2">Sim</button>
+    <button id="cancelAgendamento" class="btn btn-danger">Não</button>
+  `;
+  document.body.appendChild(popup);
 
-  const produto = produtos[idx];
-  if (qtdVenda > produto.qtd) { alert("Quantidade maior que o estoque disponível!"); return; }
+  document.getElementById('confirmAgendamento').addEventListener('click', () => {
+    window.location.href = 'agendamento.html';
+  });
 
-  produto.qtd -= qtdVenda;
-  localStorage.setItem("produtos", JSON.stringify(produtos));
-  atualizarTabelaProdutos();
-  atualizarSelectProduto();
-
-  vendas.push({ produto: produto.nome, qtdVenda, total: produto.preco * qtdVenda });
-  localStorage.setItem("vendas", JSON.stringify(vendas));
-  atualizarTabelaVendas();
-
-  document.getElementById("vendaQtd").value = "";
-  document.getElementById("vendaCodigo").value = "";
+  document.getElementById('cancelAgendamento').addEventListener('click', () => {
+    document.body.removeChild(popup);
+  });
 }
-function atualizarTabelaVendas() {
-  const tbody = document.querySelector("#tabelaVendas tbody");
-  tbody.innerHTML = "";
-  vendas.forEach(v => { tbody.innerHTML += `<tr><td>${v.produto}</td><td>${v.qtdVenda}</td><td>R$ ${v.total.toFixed(2)}</td></tr>`; });
-}
 
-// ===== Inicialização =====
-function iniciarSistema() {
-  atualizarTabelaClientes();
-  atualizarTabelaProdutos();
-  atualizarSelectProduto();
-  atualizarTabelaVendas();
-}
-window.onload = iniciarSistema;
->>>>>>> a7b6314f297e3256231e7d377941fa6f7f505029
+// ==========================
+// Exemplo: chamar popup ao clicar em algum botão específico
+// ==========================
+const agendarBtns = document.querySelectorAll('.btn-success');
+agendarBtns.forEach(btn => {
+  btn.addEventListener('click', showAgendamentoPopup);
+});
+
+// ==========================
+// Carousel Bootstrap
+// ==========================
+// O Bootstrap já inicializa automaticamente, então aqui podemos deixar vazio
+// Caso queira customizar transição ou autoplay, podemos adicionar:
+
+// const carouselElement = document.querySelector('#carouselExample');
+// const carousel = new bootstrap.Carousel(carouselElement, {
+//   interval: 3000,  // 3 segundos
+//   wrap: true
+// });
+

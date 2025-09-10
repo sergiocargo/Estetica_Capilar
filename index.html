@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,76 +12,41 @@
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 
   <style>
-    body {
-      background-color: #fff8f0;
-      padding-top: 70px;
-    }
+    body { background-color: #fff8f0; padding-top: 70px; }
 
     /* Navbar */
-    .navbar-brand {
-      font-weight: bold;
-      font-size: 1.5rem;
-    }
+    .navbar-brand { font-weight: bold; font-size: 1.5rem; }
 
-    /* Logo no topo */
-    .logo {
-      max-width: 80px;
-      height: auto;
-    }
+    /* Logo */
+    .logo { max-width: 80px; height: auto; }
 
     /* Welcome Card */
     .welcome-card {
-      text-align: center;
-      padding: 40px 20px;
-      background-color: #f8f9fa;
-      border-radius: 10px;
-      margin: 20px auto;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 20px;
+      text-align: center; padding: 40px 20px; background-color: #f8f9fa;
+      border-radius: 10px; margin: 20px auto;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      display: flex; align-items: center; justify-content: center; gap: 20px;
     }
-
-    .welcome-card h1 {
-      font-size: 2rem;
-    }
+    .welcome-card h1 { font-size: 2rem; }
 
     /* Carousel */
-    .carousel-inner img {
-      height: 400px;
-      object-fit: cover;
-      border-radius: 10px;
-    }
+    .carousel-inner img { height: 400px; object-fit: cover; border-radius: 10px; }
 
     /* Cards Serviços */
-    .card {
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
+    .card { border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+    .card-img-top { height: 200px; object-fit: cover; }
+    .btn-custom { background-color: #ff6f61; color: white; }
 
-    .card-img-top {
-      height: 200px;
-      object-fit: cover;
-    }
+    footer { background-color: #343a40; color: white; padding: 20px 0; }
+    footer a { color: white; margin: 0 10px; font-size: 1.5rem; }
 
-    .btn-custom {
-      background-color: #ff6f61;
-      color: white;
+    /* Cores temáticas */
+    .color-dot {
+      width: 25px; height: 25px; border-radius: 50%; cursor: pointer;
+      border: 2px solid #fff; box-shadow: 0 0 3px rgba(0,0,0,0.3); transition: transform 0.2s;
     }
-
-    footer {
-      background-color: #343a40;
-      color: white;
-      padding: 20px 0;
-    }
-
-    footer a {
-      color: white;
-      margin: 0 10px;
-      font-size: 1.5rem;
-    }
+    .color-dot:hover { transform: scale(1.2); }
+    .color-dot.selected { border: 3px solid #000; }
   </style>
 </head>
 
@@ -96,23 +60,14 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link <?php if($page=='home'){echo 'active';} ?>" href="index.html">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link <?php if($page=='servico'){echo 'active';} ?>" href="servico.html">Serviços</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link <?php if($page=='galerias'){echo 'active';} ?>" href="galerias.html">Galeria</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link <?php if($page=='contato'){echo 'active';} ?>" href="contato.html">Contato</a>
-          </li>
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="servico.html">Serviços</a></li>
+          <li class="nav-item"><a class="nav-link" href="galerias.html">Galeria</a></li>
+          <li class="nav-item"><a class="nav-link" href="contato.html">Contato</a></li>
         </ul>
       </div>
     </div>
   </nav>
-
 
   <!-- Botões para mudar cor -->
   <div class="d-flex gap-2 mt-3">
@@ -122,74 +77,11 @@
     <span class="color-dot" style="background-color:#4aa3df;" title="Cor 4"></span>
   </div>
 
-  <style>
-    .color-dot {
-      width: 25px;
-      height: 25px;
-      border-radius: 50%;
-      cursor: pointer;
-      border: 2px solid #fff;
-      box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
-      transition: transform 0.2s;
-    }
-
-    .color-dot:hover {
-      transform: scale(1.2);
-    }
-
-    .color-dot.selected {
-      border: 3px solid #000;
-      /* indica cor selecionada */
-    }
-  </style>
-
-  <script>
-    const dots = document.querySelectorAll('.color-dot');
-    dots.forEach(dot => {
-      dot.addEventListener('click', () => {
-        dots.forEach(d => d.classList.remove('selected'));
-        dot.classList.add('selected');
-      });
-    });
-  </script>
-
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-  <script>
-    function mudarTema(cor) {
-      document.body.style.backgroundColor = cor;
-
-      const navbar = document.querySelector(".navbar");
-      const footer = document.querySelector("footer");
-
-      // Reseta classes antigas
-      navbar.classList.remove("bg-light", "bg-dark", "bg-primary", "bg-danger", "bg-success", "navbar-dark", "navbar-light");
-      footer.classList.remove("bg-light", "bg-dark", "bg-primary", "bg-danger", "bg-success", "text-light", "text-dark");
-
-      if (cor === "#ffe6f0") {
-        navbar.classList.add("bg-danger", "navbar-dark");
-        footer.classList.add("bg-danger", "text-light");
-      } else if (cor === "#e6f0ff") {
-        navbar.classList.add("bg-primary", "navbar-dark");
-        footer.classList.add("bg-primary", "text-light");
-      } else if (cor === "#d9f7d9") {
-        navbar.classList.add("bg-success", "navbar-dark");
-        footer.classList.add("bg-success", "text-light");
-      } else if (cor === "#000000") {
-        navbar.classList.add("bg-dark", "navbar-dark");
-        footer.classList.add("bg-dark", "text-light");
-      } else {
-        navbar.classList.add("bg-light", "navbar-light");
-        footer.classList.add("bg-light", "text-dark");
-      }
-    }
-  </script>
-  <!--!Welcome Card -->
+  <!-- Welcome Card -->
   <section class="welcome-section">
     <div class="welcome-card">
-      <img src="img/WhatsApp Image 2025-09-09 at 16.49.19.jpeg" alt="Logo Estética Capilar" class="logo">
-      <img src="img/Logotipo.jpeg" alt="Logo Estética Capilar" class="logo">
+      <img src="img/WhatsApp Image 2025-09-09 at 16.49.19.jpeg" alt="Logo" class="logo">
+      <img src="img/Logotipo.jpeg" alt="Logo" class="logo">
       <div>
         <h1>Bem-vindo à Estética Capilar</h1>
         <div class="mt-3">
@@ -203,15 +95,9 @@
   <!-- Carousel -->
   <div id="carouselExample" class="carousel slide mt-4">
     <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="img/img6.jpeg" class="d-block w-100" alt="Slide 1">
-      </div>
-      <div class="carousel-item">
-        <img src="img/img2.jpeg" class="d-block w-100" alt="Slide 2">
-      </div>
-      <div class="carousel-item">
-        <img src="img/img7.jpeg" class="d-block w-100" alt="Slide 3">
-      </div>
+      <div class="carousel-item active"><img src="img/img6.jpeg" class="d-block w-100" alt="Slide 1"></div>
+      <div class="carousel-item"><img src="img/img2.jpeg" class="d-block w-100" alt="Slide 2"></div>
+      <div class="carousel-item"><img src="img/img7.jpeg" class="d-block w-100" alt="Slide 3"></div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
       <span class="carousel-control-prev-icon"></span>
@@ -221,7 +107,7 @@
     </button>
   </div>
 
-  <!-- Seção de Serviços -->
+  <!-- Serviços -->
   <section class="py-5 bg-light">
     <div class="container">
       <h2 class="text-center mb-4">Nossos Serviços</h2>
@@ -231,8 +117,7 @@
             <img src="img/img1.jpeg" class="card-img-top" alt="Serviço 1">
             <div class="card-body text-center">
               <h5 class="card-title">Melhorar a saúde capilar</h5>
-              <p class="card-text">Tratar e prevenir problemas como queda de cabelo, calvície, seborreia, fios
-                quebradiços e couro cabeludo desequilibrado.</p>
+              <p class="card-text">Tratar e prevenir problemas como queda de cabelo, calvície, seborreia, fios quebradiços e couro cabeludo desequilibrado.</p>
               <a href="agendamento.html" class="btn btn-custom">Agendar</a>
             </div>
           </div>
@@ -242,8 +127,7 @@
             <img src="img/img7.jpeg" class="card-img-top" alt="Serviço 2">
             <div class="card-body text-center">
               <h5 class="card-title">Tecnologias</h5>
-              <p class="card-text">Fotobioestimulação (LED) para aumentar o metabolismo celular, melhorar circulação e
-                nutrição do couro cabeludo.</p>
+              <p class="card-text">Fotobioestimulação (LED) para aumentar o metabolismo celular, melhorar circulação e nutrição do couro cabeludo.</p>
               <a href="agendamento.html" class="btn btn-custom">Agendar</a>
             </div>
           </div>
@@ -253,8 +137,7 @@
             <img src="img/img9.jpeg" class="card-img-top" alt="Serviço 3">
             <div class="card-body text-center">
               <h5 class="card-title">Restaurar a qualidade dos fios</h5>
-              <p class="card-text">Tratamentos como hidratação e reconstrução para restaurar saúde e vitalidade de
-                cabelos danificados.</p>
+              <p class="card-text">Tratamentos como hidratação e reconstrução para restaurar saúde e vitalidade de cabelos danificados.</p>
               <a href="agendamento.html" class="btn btn-custom">Agendar</a>
             </div>
           </div>
@@ -267,244 +150,4 @@
   <footer class="text-center">
     <p>© 2025 Estética Capilar - Todos os direitos reservados</p>
     <div>
-      <a href="https://wa.me/message/QDJMIC6AWYPXH1" target="_blank"><i class="bi bi-whatsapp"></i></a>
-      <a href="https://www.instagram.com/revitalize_terapiacapilar?igsh=NzcyM3pqazBwd2U4&utm_source=qr"
-        target="_blank"><i class="bi bi-instagram"></i></a>
-      <a href="https://facebook.com/seufacebook" target="_blank"><i class="bi bi-facebook"></i></a>
-    </div>
-  </footer>
-
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Navbar muda cor ao rolar -->
-  <script>
-    window.addEventListener('scroll', function () {
-      const navbar = document.querySelector('.navbar');
-      if (window.scrollY > 100) {
-        navbar.style.backgroundColor = '#ff6f61'; // cor ao rolar
-      } else {
-        navbar.style.backgroundColor = 'transparent'; // cor inicial
-      }
-    });
-  </script>
-  <script>
-    <script>
-      function mudarTema(cor) {
-        document.body.style.backgroundColor = cor;
-
-      const navbar = document.querySelector(".navbar");
-      if (cor === "#ffe6f0") {
-        navbar.classList.add("bg-pink");
-      navbar.classList.remove("bg-blue", "bg-light");
-    } else if (cor === "#e6f0ff") {
-        navbar.classList.add("bg-blue");
-      navbar.classList.remove("bg-pink", "bg-light");
-    } else {
-        navbar.classList.add("bg-light");
-      navbar.classList.remove("bg-pink", "bg-blue");
-    }
-  }
-  </script>
-
-
-</body>
-
-</html>
-=======
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Meu PDV</title>
-  <style>
-    body { 
-      font-family: Arial, sans-serif; 
-      margin: 0; 
-      padding: 20px;
-      background-color: #f0f4f8;
-    }
-    h1 { text-align: center; color: #333; }
-    h2 { margin-top: 20px; color: #222; }
-    section { 
-      background-color: #fff;
-      padding: 15px; 
-      margin-bottom: 20px; 
-      border-radius: 10px;
-      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
-    }
-    input, button, select { 
-      padding: 8px; 
-      margin: 5px 0; 
-      width: 100%; 
-      max-width: 300px; 
-      border-radius: 5px;
-      border: 1px solid #ccc;
-    }
-    button { 
-      background-color: #4CAF50; 
-      color: white; 
-      border: none; 
-      cursor: pointer; 
-    }
-    button:hover { background-color: #45a049; }
-    table { width: 100%; border-collapse: collapse; margin-top: 10px; }
-    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
-    @media(max-width:600px){
-      input, button, select { width: 100%; }
-    }
-  </style>
-</head>
-<body>
-
-<h1>Meu PDV</h1>
-
-<section>
-  <h2>Cadastro de Clientes</h2>
-  <input type="text" id="clienteNome" placeholder="Nome do Cliente">
-  <input type="text" id="clienteTelefone" placeholder="Telefone">
-  <input type="number" id="clienteDias" placeholder="Dias para Pagamento">
-  <button onclick="adicionarCliente()">Adicionar Cliente</button>
-  <table id="tabelaClientes">
-    <thead>
-      <tr><th>Nome</th><th>Telefone</th><th>Dias</th></tr>
-    </thead>
-    <tbody></tbody>
-  </table>
-</section>
-
-<section>
-  <h2>Cadastro de Produtos</h2>
-  <input type="text" id="produtoCodigo" placeholder="Código de Barras">
-  <input type="text" id="produtoNome" placeholder="Nome do Produto">
-  <input type="number" id="produtoPreco" placeholder="Preço (R$)" step="0.01">
-  <input type="number" id="produtoQtd" placeholder="Quantidade">
-  <button onclick="adicionarProduto()">Adicionar Produto</button>
-  <table id="tabelaProdutos">
-    <thead>
-      <tr><th>Código</th><th>Produto</th><th>Preço</th><th>Qtd</th></tr>
-    </thead>
-    <tbody></tbody>
-  </table>
-</section>
-
-<section>
-  <h2>PDV</h2>
-  <input type="text" id="vendaCodigo" placeholder="Código de Barras (ou selecione abaixo)">
-  <select id="vendaProduto"></select>
-  <input type="number" id="vendaQtd" placeholder="Quantidade">
-  <button onclick="registrarVenda()">Registrar Venda</button>
-  <table id="tabelaVendas">
-    <thead>
-      <tr><th>Produto</th><th>Qtd</th><th>Total (R$)</th></tr>
-    </thead>
-    <tbody></tbody>
-  </table>
-</section>
-
-<script>
-  // ===== Arrays =====
-  let clientes = JSON.parse(localStorage.getItem("clientes")) || [];
-  let produtos = JSON.parse(localStorage.getItem("produtos")) || [];
-  let vendas = JSON.parse(localStorage.getItem("vendas")) || [];
-
-  // ===== CLIENTES =====
-  function adicionarCliente() {
-    const nome = document.getElementById("clienteNome").value;
-    const telefone = document.getElementById("clienteTelefone").value;
-    const dias = document.getElementById("clienteDias").value;
-    if (!nome || !telefone || !dias) { alert("Preencha todos os campos do cliente!"); return; }
-    clientes.push({ nome, telefone, dias });
-    localStorage.setItem("clientes", JSON.stringify(clientes));
-    atualizarTabelaClientes();
-    limparCamposCliente();
-  }
-  function atualizarTabelaClientes() {
-    const tbody = document.querySelector("#tabelaClientes tbody");
-    tbody.innerHTML = "";
-    clientes.forEach(c => { tbody.innerHTML += `<tr><td>${c.nome}</td><td>${c.telefone}</td><td>${c.dias}</td></tr>`; });
-  }
-  function limparCamposCliente() {
-    document.getElementById("clienteNome").value = "";
-    document.getElementById("clienteTelefone").value = "";
-    document.getElementById("clienteDias").value = "";
-  }
-
-  // ===== PRODUTOS =====
-  function adicionarProduto() {
-    const codigo = document.getElementById("produtoCodigo").value;
-    const nome = document.getElementById("produtoNome").value;
-    const preco = parseFloat(document.getElementById("produtoPreco").value);
-    const qtd = parseInt(document.getElementById("produtoQtd").value);
-
-    if (!codigo || !nome || isNaN(preco) || isNaN(qtd)) { alert("Preencha todos os campos do produto corretamente!"); return; }
-    if (produtos.some(p => p.codigo === codigo)) { alert("Código de barras já cadastrado!"); return; }
-
-    produtos.push({ codigo, nome, preco, qtd });
-    localStorage.setItem("produtos", JSON.stringify(produtos));
-    atualizarTabelaProdutos();
-    atualizarSelectProduto();
-    limparCamposProduto();
-  }
-  function atualizarTabelaProdutos() {
-    const tbody = document.querySelector("#tabelaProdutos tbody");
-    tbody.innerHTML = "";
-    produtos.forEach(p => { tbody.innerHTML += `<tr><td>${p.codigo}</td><td>${p.nome}</td><td>R$ ${p.preco.toFixed(2)}</td><td>${p.qtd}</td></tr>`; });
-  }
-  function limparCamposProduto() {
-    document.getElementById("produtoCodigo").value = "";
-    document.getElementById("produtoNome").value = "";
-    document.getElementById("produtoPreco").value = "";
-    document.getElementById("produtoQtd").value = "";
-  }
-  function atualizarSelectProduto() {
-    const select = document.getElementById("vendaProduto");
-    select.innerHTML = "";
-    produtos.forEach((p,i)=>{ select.innerHTML += `<option value="${i}">${p.nome} - R$ ${p.preco.toFixed(2)} (Estoque: ${p.qtd})</option>`; });
-  }
-
-  // ===== PDV =====
-  document.getElementById("vendaCodigo").addEventListener("input", function() {
-    const codigo = this.value.trim();
-    const idx = produtos.findIndex(p => p.codigo === codigo);
-    if (idx >= 0) document.getElementById("vendaProduto").value = idx;
-  });
-
-  function registrarVenda() {
-    const idx = parseInt(document.getElementById("vendaProduto").value);
-    const qtdVenda = parseInt(document.getElementById("vendaQtd").value);
-    if (isNaN(qtdVenda) || qtdVenda <= 0) { alert("Digite uma quantidade válida!"); return; }
-
-    const produto = produtos[idx];
-    if (qtdVenda > produto.qtd) { alert("Quantidade maior que o estoque disponível!"); return; }
-
-    produto.qtd -= qtdVenda;
-    localStorage.setItem("produtos", JSON.stringify(produtos));
-    atualizarTabelaProdutos();
-    atualizarSelectProduto();
-
-    vendas.push({ produto: produto.nome, qtdVenda, total: produto.preco * qtdVenda });
-    localStorage.setItem("vendas", JSON.stringify(vendas));
-    atualizarTabelaVendas();
-
-    document.getElementById("vendaQtd").value = "";
-    document.getElementById("vendaCodigo").value = "";
-  }
-  function atualizarTabelaVendas() {
-    const tbody = document.querySelector("#tabelaVendas tbody");
-    tbody.innerHTML = "";
-    vendas.forEach(v => { tbody.innerHTML += `<tr><td>${v.produto}</td><td>${v.qtdVenda}</td><td>R$ ${v.total.toFixed(2)}</td></tr>`; });
-  }
-
-  // ===== Inicialização =====
-  function iniciarSistema() {
-    atualizarTabelaClientes();
-    atualizarTabelaProdutos();
-    atualizarSelectProduto();
-    atualizarTabelaVendas();
-  }
-  window.onload = iniciarSistema;
-</script>
-
-</body>
-</html>
->>>>>>> a7b6314f297e3256231e7d377941fa6f7f505029
+      <a href="https://wa.me/message/QDJMIC6AWYPXH1" target="_blank"><i class="bi bi_
