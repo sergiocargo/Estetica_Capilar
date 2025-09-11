@@ -13,6 +13,8 @@
     body {
       padding-top: 80px;
       background-color: #fff4f0;
+      color: #333; /* Cor padrão para o texto */
+      font-size: 1.1rem; /* Tamanho de fonte aumentado */
     }
 
     .navbar-brand {
@@ -30,6 +32,7 @@
 
     .card-agenda h5 {
       font-weight: bold;
+      color: #333; /* Cor do texto para os títulos */
     }
 
     .btn-agendar {
@@ -59,37 +62,81 @@
       margin: 0 10px;
       font-size: 1.5rem;
     }
+
+    /* Cores temáticas */
+    .color-dot {
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      cursor: pointer;
+      border: 2px solid #fff;
+      box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+      transition: transform 0.2s;
+    }
+
+    .color-dot:hover {
+      transform: scale(1.2);
+    }
+
+    .color-dot.selected {
+      border: 3px solid #000;
+    }
+
+    /* Estilo para os horários */
+    .card-agenda h5.mt-4 {
+      color: #333; /* Garantindo que o título de "Horários Disponíveis" tenha cor visível */
+    }
+
+    .btn-outline-primary {
+      color: #333; /* Cor do texto dos botões */
+      border-color: #333; /* Cor da borda dos botões */
+    }
+
+    .btn-outline-primary:hover {
+      color: #fff; /* Cor do texto ao passar o mouse */
+      background-color: #333; /* Cor de fundo ao passar o mouse */
+      border-color: #333; /* Cor da borda ao passar o mouse */
+    }
   </style>
 </head>
 
 <body>
+
   <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-  <div class="container">
-    <a class="navbar-brand" href="index.html">Estética Capilar</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
-          <a class="nav-link <?php if($page=='home'){echo 'active';} ?>" href="index.html">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link <?php if($page=='servico'){echo 'active';} ?>" href="servico.html">Serviços</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link <?php if($page=='galerias'){echo 'active';} ?>" href="galerias.html">Galeria</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link <?php if($page=='contato'){echo 'active';} ?>" href="contato.html">Contato</a>
-        </li>
-      </ul>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Estética Capilar</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="servico.html">Serviços</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="galerias.html">Galeria</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contato.html">Contato</a>
+          </li>
+        </ul>
+      </div>
     </div>
+  </nav>
+
+  <!-- Bolinhas de cores para tema -->
+  <div class="d-flex gap-2 ms-3 justify-content-center mt-3">
+    <span class="color-dot" style="background-color:#ff6f61;" title="Cor 1" onclick="mudarTema('#ff6f61')"></span>
+    <span class="color-dot" style="background-color:#f7c59f;" title="Cor 2" onclick="mudarTema('#f7c59f')"></span>
+    <span class="color-dot" style="background-color:#6fbf73;" title="Cor 3" onclick="mudarTema('#6fbf73')"></span>
+    <span class="color-dot" style="background-color:#4aa3df;" title="Cor 4" onclick="mudarTema('#4aa3df')"></span>
   </div>
-</nav>
 
-
+  <!-- Cadastro -->
   <section class="agendamento-section py-5">
     <div class="container">
       <div class="row g-4">
@@ -185,6 +232,38 @@
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    function mudarTema(cor) {
+      // Muda a cor de fundo da página
+      document.body.style.backgroundColor = cor;
+
+      // Muda a cor da navbar
+      const navbar = document.querySelector(".navbar");
+      navbar.style.backgroundColor = cor;
+
+      // Muda a cor do footer
+      const footer = document.querySelector("footer");
+      footer.style.backgroundColor = cor;
+
+      // Muda a cor dos botões
+      const buttons = document.querySelectorAll('.btn-agendar, .btn-outline-primary');
+      buttons.forEach(btn => {
+        btn.style.backgroundColor = cor;
+        btn.style.borderColor = cor;
+      });
+
+      // Muda o tamanho da fonte
+      document.body.style.fontSize = "1.2rem";  // Aumenta o tamanho da fonte
+
+      // Muda a borda da bolinha clicada para indicar que foi selecionada
+      let dots = document.querySelectorAll('.color-dot');
+      dots.forEach(dot => {
+        dot.classList.remove('selected');
+      });
+      event.target.classList.add('selected');
+    }
+  </script>
 </body>
 
 </html>

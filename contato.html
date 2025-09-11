@@ -77,6 +77,24 @@
       margin: 0 10px;
       font-size: 1.5rem;
     }
+
+    .color-dot {
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      cursor: pointer;
+      border: 2px solid #fff;
+      box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+      transition: transform 0.2s;
+    }
+
+    .color-dot:hover {
+      transform: scale(1.2);
+    }
+
+    .color-dot.selected {
+      border: 3px solid #000;
+    }
   </style>
 </head>
 
@@ -109,16 +127,12 @@
   </nav>
 
   <!-- Botões de tema -->
-  <div class="d-flex gap-2 ms-3">
-    <button onclick="mudarTema('#ffe6f0')" class="btn btn-sm btn-danger">Rosa</button>
-    <button onclick="mudarTema('#e6f0ff')" class="btn btn-sm btn-primary">Azul</button>
-    <button onclick="mudarTema('#d9f7d9')" class="btn btn-sm btn-success">Verde</button>
-    <button onclick="mudarTema('#ffffff')" class="btn btn-sm btn-secondary">Claro</button>
-    <button onclick="mudarTema('#000000')" class="btn btn-sm btn-dark">Escuro</button>
+  <div class="d-flex gap-2 ms-3 justify-content-center mt-3">
+    <span class="color-dot" style="background-color:#ff6f61;" title="Cor 1" onclick="mudarTema('#ff6f61')"></span>
+    <span class="color-dot" style="background-color:#f7c59f;" title="Cor 2" onclick="mudarTema('#f7c59f')"></span>
+    <span class="color-dot" style="background-color:#6fbf73;" title="Cor 3" onclick="mudarTema('#6fbf73')"></span>
+    <span class="color-dot" style="background-color:#4aa3df;" title="Cor 4" onclick="mudarTema('#4aa3df')"></span>
   </div>
-  </div>
-  </div>
-  </nav>
 
   <!-- Logo -->
   <div class="logo-container">

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,41 +13,95 @@
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 
   <style>
-    body { background-color: #fff8f0; padding-top: 70px; }
+    body {
+      background-color: #fff8f0;
+      padding-top: 70px;
+    }
 
     /* Navbar */
-    .navbar-brand { font-weight: bold; font-size: 1.5rem; }
+    .navbar-brand {
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
 
     /* Logo */
-    .logo { max-width: 80px; height: auto; }
+    .logo {
+      max-width: 80px;
+      height: auto;
+    }
 
     /* Welcome Card */
     .welcome-card {
-      text-align: center; padding: 40px 20px; background-color: #f8f9fa;
-      border-radius: 10px; margin: 20px auto;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      display: flex; align-items: center; justify-content: center; gap: 20px;
+      text-align: center;
+      padding: 40px 20px;
+      background-color: #f8f9fa;
+      border-radius: 10px;
+      margin: 20px auto;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
     }
-    .welcome-card h1 { font-size: 2rem; }
+
+    .welcome-card h1 {
+      font-size: 2rem;
+    }
 
     /* Carousel */
-    .carousel-inner img { height: 400px; object-fit: cover; border-radius: 10px; }
+    .carousel-inner img {
+      height: 400px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
 
     /* Cards Serviços */
-    .card { border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
-    .card-img-top { height: 200px; object-fit: cover; }
-    .btn-custom { background-color: #ff6f61; color: white; }
+    .card {
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
 
-    footer { background-color: #343a40; color: white; padding: 20px 0; }
-    footer a { color: white; margin: 0 10px; font-size: 1.5rem; }
+    .card-img-top {
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .btn-custom {
+      background-color: #ff6f61;
+      color: white;
+    }
+
+    footer {
+      background-color: #343a40;
+      color: white;
+      padding: 20px 0;
+    }
+
+    footer a {
+      color: white;
+      margin: 0 10px;
+      font-size: 1.5rem;
+    }
 
     /* Cores temáticas */
     .color-dot {
-      width: 25px; height: 25px; border-radius: 50%; cursor: pointer;
-      border: 2px solid #fff; box-shadow: 0 0 3px rgba(0,0,0,0.3); transition: transform 0.2s;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      cursor: pointer;
+      border: 2px solid #fff;
+      box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+      transition: transform 0.2s;
     }
-    .color-dot:hover { transform: scale(1.2); }
-    .color-dot.selected { border: 3px solid #000; }
+
+    .color-dot:hover {
+      transform: scale(1.2);
+    }
+
+    .color-dot.selected {
+      border: 3px solid #000;
+    }
   </style>
 </head>
 
@@ -55,13 +110,22 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
       <a class="navbar-brand" href="index.html">Estética Capilar</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="servico.html">Serviços</a></li>
+          <!-- Dropdown para Serviços -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Nossos Serviços
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="capilar.html">Capilar</a></li>
+              <li><a class="dropdown-item" href="facial.html">Facial</a></li>
+            </ul>
+          </li>
           <li class="nav-item"><a class="nav-link" href="galerias.html">Galeria</a></li>
           <li class="nav-item"><a class="nav-link" href="contato.html">Contato</a></li>
         </ul>
@@ -69,12 +133,12 @@
     </div>
   </nav>
 
-  <!-- Botões para mudar cor -->
-  <div class="d-flex gap-2 mt-3">
-    <span class="color-dot" style="background-color:#ff6f61;" title="Cor 1"></span>
-    <span class="color-dot" style="background-color:#f7c59f;" title="Cor 2"></span>
-    <span class="color-dot" style="background-color:#6fbf73;" title="Cor 3"></span>
-    <span class="color-dot" style="background-color:#4aa3df;" title="Cor 4"></span>
+  <!-- Bolinhas para mudar cor -->
+  <div class="d-flex gap-2 mt-3 justify-content-center">
+    <span class="color-dot" style="background-color:#ff6f61;" title="Cor 1" onclick="mudarTema('#ff6f61')"></span>
+    <span class="color-dot" style="background-color:#f7c59f;" title="Cor 2" onclick="mudarTema('#f7c59f')"></span>
+    <span class="color-dot" style="background-color:#6fbf73;" title="Cor 3" onclick="mudarTema('#6fbf73')"></span>
+    <span class="color-dot" style="background-color:#4aa3df;" title="Cor 4" onclick="mudarTema('#4aa3df')"></span>
   </div>
 
   <!-- Welcome Card -->
@@ -107,47 +171,40 @@
     </button>
   </div>
 
-  <!-- Serviços -->
-  <section class="py-5 bg-light">
-    <div class="container">
-      <h2 class="text-center mb-4">Nossos Serviços</h2>
-      <div class="row">
-        <div class="col-md-4 mb-3">
-          <div class="card">
-            <img src="img/img1.jpeg" class="card-img-top" alt="Serviço 1">
-            <div class="card-body text-center">
-              <h5 class="card-title">Melhorar a saúde capilar</h5>
-              <p class="card-text">Tratar e prevenir problemas como queda de cabelo, calvície, seborreia, fios quebradiços e couro cabeludo desequilibrado.</p>
-              <a href="agendamento.html" class="btn btn-custom">Agendar</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 mb-3">
-          <div class="card">
-            <img src="img/img7.jpeg" class="card-img-top" alt="Serviço 2">
-            <div class="card-body text-center">
-              <h5 class="card-title">Tecnologias</h5>
-              <p class="card-text">Fotobioestimulação (LED) para aumentar o metabolismo celular, melhorar circulação e nutrição do couro cabeludo.</p>
-              <a href="agendamento.html" class="btn btn-custom">Agendar</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 mb-3">
-          <div class="card">
-            <img src="img/img9.jpeg" class="card-img-top" alt="Serviço 3">
-            <div class="card-body text-center">
-              <h5 class="card-title">Restaurar a qualidade dos fios</h5>
-              <p class="card-text">Tratamentos como hidratação e reconstrução para restaurar saúde e vitalidade de cabelos danificados.</p>
-              <a href="agendamento.html" class="btn btn-custom">Agendar</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Footer -->
   <footer class="text-center">
     <p>© 2025 Estética Capilar - Todos os direitos reservados</p>
     <div>
-      <a href="https://wa.me/message/QDJMIC6AWYPXH1" target="_blank"><i class="bi bi_
+      <a href="https://wa.me/message/QDJMIC6AWYPXH1" target="_blank"><i class="bi bi-whatsapp"></i></a>
+      <a href="https://www.instagram.com" target="_blank"><i class="bi bi-instagram"></i></a>
+      <a href="mailto:contato@estetica.com" target="_blank"><i class="bi bi-envelope"></i></a>
+    </div>
+  </footer>
+
+  <script>
+    // Função para mudar o tema de cor
+    function mudarTema(cor) {
+      document.body.style.backgroundColor = cor;
+      document.querySelector('.navbar').style.backgroundColor = cor;
+      document.querySelector('footer').style.backgroundColor = cor;
+
+      const buttons = document.querySelectorAll('.btn-custom, .btn-success, .btn-warning');
+      buttons.forEach(btn => {
+        btn.style.backgroundColor = cor;
+        btn.style.borderColor = cor;
+      });
+
+      let dots = document.querySelectorAll('.color-dot');
+      dots.forEach(dot => {
+        dot.classList.remove('selected');
+      });
+
+      event.target.classList.add('selected');
+    }
+  </script>
+
+  <!-- Script do Bootstrap -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

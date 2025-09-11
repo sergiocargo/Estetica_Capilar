@@ -1,112 +1,3 @@
-/* ==========================
-   style.css - Estética Capilar
-   ========================== */
-
-/* Corpo e fontes */
-body {
-  font-family: 'Arial', sans-serif;
-  background-color: #fff8f0;
-  padding-top: 70px;
-  margin: 0;
-}
-
-/* ==========================
-   Navbar
-========================== */
-.navbar-brand {
-  font-weight: bold;
-  font-size: 1.5rem;
-}
-
-.navbar-nav .nav-link {
-  font-weight: 500;
-}
-
-/* ==========================
-   Logo
-========================== */
-.logo {
-  max-width: 80px;
-  height: auto;
-}
-
-/* ==========================
-   Welcome Card
-========================== */
-.welcome-card {
-  text-align: center;
-  padding: 40px 20px;
-  background-color: #f8f9fa;
-  border-radius: 10px;
-  margin: 20px auto;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-}
-
-.welcome-card h1 {
-  font-size: 2rem;
-}
-
-/* ==========================
-   Carousel
-========================== */
-.carousel-inner img {
-  height: 400px;
-  object-fit: cover;
-  border-radius: 10px;
-}
-
-/* ==========================
-   Cards de Serviços
-========================== */
-.card {
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.card-img-top {
-  height: 200px;
-  object-fit: cover;
-}
-
-.btn-custom {
-  background-color: #ff6f61;
-  color: white;
-  border: none;
-}
-
-.btn-custom:hover {
-  background-color: #e65b50;
-}
-
-/* ==========================
-   Footer
-========================== */
-footer {
-  background-color: #343a40;
-  color: white;
-  padding: 20px 0;
-  text-align: center;
-}
-
-footer a {
-  color: white;
-  margin: 0 10px;
-  font-size: 1.5rem;
-  transition: color 0.2s;
-}
-
-footer a:hover {
-  color: #ff6f61;
-}
-
-/* ==========================
-   Dots de cores
-========================== */
 .color-dot {
   width: 25px;
   height: 25px;
@@ -115,7 +6,6 @@ footer a:hover {
   border: 2px solid #fff;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
   transition: transform 0.2s;
-  display: inline-block;
 }
 
 .color-dot:hover {
@@ -123,19 +13,5 @@ footer a:hover {
 }
 
 .color-dot.selected {
-  border: 3px solid #000;
-}
-
-/* ==========================
-   Responsividade
-========================== */
-@media (max-width: 768px) {
-  .welcome-card {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .carousel-inner img {
-    height: 250px;
-  }
+  border: 3px solid #000; /* A borda ficará mais espessa quando selecionada */
 }

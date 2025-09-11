@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,38 +8,74 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
   <style>
-    body { padding-top: 70px; background-color: #fff8f0; }
+    body {
+      padding-top: 70px;
+      background-color: #fff8f0;
+    }
 
-    .navbar-brand { font-weight: bold; font-size: 1.5rem; }
+    .navbar-brand {
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
 
     .card-service {
-      border-radius: 15px; padding: 15px;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      border-radius: 15px;
+      padding: 15px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
       background-color: #fff;
       transition: transform 0.3s;
     }
-    .card-service:hover { transform: scale(1.03); }
-    .card-service img { border-radius: 10px; height: 200px; object-fit: cover; }
 
-    .btn-custom { background-color: #ff6f61; color: white; }
+    .card-service:hover {
+      transform: scale(1.03);
+    }
 
-    .pagination { justify-content: center; margin-top: 30px; }
+    .card-service img {
+      border-radius: 10px;
+      height: 200px;
+      object-fit: cover;
+    }
 
-    footer { background-color: #343a40; color: white; padding: 20px 0; }
-    footer a { color: white; margin: 0 10px; font-size: 1.5rem; }
+    .btn-custom {
+      background-color: #ff6f61;
+      color: white;
+    }
+
+    .pagination {
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    footer {
+      background-color: #343a40;
+      color: white;
+      padding: 20px 0;
+    }
+
+    footer a {
+      color: white;
+      margin: 0 10px;
+      font-size: 1.5rem;
+    }
 
     /* Bolinhas de cores */
     .color-circle {
-      width: 30px; height: 30px;
+      width: 30px;
+      height: 30px;
       border-radius: 50%;
       margin: 0 5px;
       cursor: pointer;
       border: 2px solid #ccc;
       transition: transform 0.2s;
     }
-    .color-circle:hover { transform: scale(1.2); border-color: #333; }
+
+    .color-circle:hover {
+      transform: scale(1.2);
+      border-color: #333;
+    }
   </style>
 </head>
+
 <body>
 
   <!-- Navbar -->
@@ -129,20 +166,36 @@
 
   <script>
     function mudarTema(cor) {
+      // Muda o fundo do corpo
       document.body.style.backgroundColor = cor;
-      const navbar = document.querySelector(".navbar");
-      const footer = document.querySelector("footer");
 
-      navbar.classList.remove("bg-light","bg-dark","bg-primary","bg-danger","bg-success","navbar-dark","navbar-light");
+      // Muda o fundo da navbar
+      const navbar = document.querySelector(".navbar");
+      navbar.style.backgroundColor = cor;
+
+      // Muda o fundo do footer
+      const footer = document.querySelector("footer");
       footer.style.backgroundColor = cor;
 
-      if(cor === "#ffe6f0") navbar.classList.add("bg-danger");
-      else if(cor === "#e6f0ff") navbar.classList.add("bg-primary");
-      else if(cor === "#d9f7d9") navbar.classList.add("bg-success");
-      else if(cor === "#000000") navbar.classList.add("bg-dark","navbar-dark");
-      else navbar.classList.add("bg-light","navbar-light");
+      // Caso a cor seja específica, altere as cores adicionais
+      if(cor === "#ffe6f0") {
+        navbar.classList.add("bg-danger");
+        navbar.classList.remove("bg-dark", "bg-primary", "bg-success");
+      } else if(cor === "#e6f0ff") {
+        navbar.classList.add("bg-primary");
+        navbar.classList.remove("bg-dark", "bg-danger", "bg-success");
+      } else if(cor === "#d9f7d9") {
+        navbar.classList.add("bg-success");
+        navbar.classList.remove("bg-dark", "bg-danger", "bg-primary");
+      } else if(cor === "#000000") {
+        navbar.classList.add("bg-dark");
+        navbar.classList.remove("bg-danger", "bg-primary", "bg-success");
+      } else {
+        navbar.classList.add("bg-light");
+        navbar.classList.remove("bg-dark", "bg-danger", "bg-primary", "bg-success");
+      }
     }
   </script>
-
 </body>
+
 </html>
