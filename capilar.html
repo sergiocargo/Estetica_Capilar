@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,33 +8,207 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
   <style>
-    body { background-color: #fff8f0; padding-top: 70px; }
-    .card { border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); }
-    .card-img-top { height: 200px; object-fit: cover; }
-    footer { background-color: #343a40; color: white; padding: 20px 0; }
-    footer a { color: white; margin: 0 10px; font-size: 1.5rem; }
+    body {
+      background-color: #fff8f0;
+      padding-top: 70px;
+    }
+
+    .card {
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-img-top {
+      height: 200px;
+      object-fit: cover;
+    }
+
+    footer {
+      background-color: #343a40;
+      color: white;
+      padding: 20px 0;
+    }
+
+    footer a {
+      color: white;
+      margin: 0 10px;
+      font-size: 1.5rem;
+    }
+
+    .color-dot {
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      cursor: pointer;
+      border: 2px solid #fff;
+      box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+      transition: transform 0.2s;
+    }
+
+    .color-dot:hover {
+      transform: scale(1.2);
+    }
+
+    .color-dot.selected {
+      border: 3px solid #000;
+    }
   </style>
 </head>
+
 <body>
 
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Estética Capilar</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="capilar.html">Capilar</a></li>
+          <li class="nav-item"><a class="nav-link" href="facial.html">Facial</a></li>
+          <li class="nav-item"><a class="nav-link" href="galerias.html">Galeria</a></li>
+          <li class="nav-item"><a class="nav-link" href="contato.html">Contato</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Bolinhas para mudar a cor -->
+  <div class="d-flex gap-2 mt-3 justify-content-center">
+    <span class="color-dot" style="background-color:#ff6f61;" title="Cor 1" onclick="mudarTema('#ff6f61')"></span>
+    <span class="color-dot" style="background-color:#f7c59f;" title="Cor 2" onclick="mudarTema('#f7c59f')"></span>
+    <span class="color-dot" style="background-color:#6fbf73;" title="Cor 3" onclick="mudarTema('#6fbf73')"></span>
+    <span class="color-dot" style="background-color:#4aa3df;" title="Cor 4" onclick="mudarTema('#4aa3df')"></span>
+  </div>
+
+  <!-- Conteúdo da página Capilar -->
   <div class="container py-5">
     <h2 class="text-center mb-4">Serviços Capilares</h2>
     <div class="row">
-      <!-- 11 cards Capilar -->
+      <!-- Card 1: Tricologia -->
       <div class="col-md-4 mb-3">
         <div class="card">
-          <img src="img/capilar1.jpg" class="card-img-top" alt="Serviço Capilar 1">
+          <img src="imginternet/Capilar/Tricologia/image3.jpg" class="card-img-top" alt="Tricologia">
           <div class="card-body text-center">
             <h5 class="card-title">Tricologia</h5>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <a href="agendamento.html" class="btn btn-custom">Agendar</a>
+            <p class="card-text">A tricologia é a especialidade médica, dentro da dermatologia, que estuda, diagnostica e trata as doenças e problemas que afetam os cabelos, os pelos e o couro cabeludo, como queda de cabelo, calvície, caspa, inflamações e outras condições. Médicos especialistas nessa área, os tricologistas, realizam um diagnóstico preciso para indicar o tratamento mais adequado, que pode incluir medicamentos, terapias a laser ou outros procedimentos. </p>
           </div>
         </div>
       </div>
-      <!-- Replicar para os 10 outros serviços -->
+      <!-- Replicar para os outros 10 cards -->
+      <div class="col-md-4 mb-3">
+        <div class="card">
+          <img src="imginternet/Capilar/Microagulhamento/imagem2.jpg" class="card-img-top" alt="Microagulhamento">
+          <div class="card-body text-center">
+            <h5 class="card-title">Microagulhamento</h5>
+            <p class="card-text">O microagulhamento é uma técnica dermatológica e estética que consiste em criar microperfurações na pele utilizando um equipamento com microagulhas, como um roller ou caneta elétrica, para estimular a produção natural de colágeno e elastina. O procedimento ativa a regeneração da pele e a produção de fibroblastos, resultando na melhora de rugas, cicatrizes (especialmente de acne), estrias e flacidez, além de auxiliar na absorção de ativos cosméticos pelo processo de "drug delivery</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="card">
+          <img src="imginternet/Capilar/Intradermoterapia/imagem1.jpg" class="card-img-top" alt="Intradermoterapia">
+          <div class="card-body text-center">
+            <h5 class="card-title">Intradermoterapia</h5>
+            <p class="card-text">A intradermoterapia capilar, ou mesoterapia capilar, é um tratamento para a queda de cabelo que utiliza microinjeções para aplicar medicamentos, vitaminas, aminoácidos e outros ativos diretamente no couro cabeludo. Esse método visa nutrir os folículos pilosos, estimular o crescimento dos fios, aumentar sua espessura e densidade, e melhorar a saúde geral do cabelo. É um procedimento minimamente invasivo realizado por profissionais qualificados, para tratar diversas formas de alopecias, incluindo a alopecia androgenética e a alopecia areata. </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="card">
+          <img src="img/argilaterapia.jpg" class="card-img-top" alt="Argilaterapia">
+          <div class="card-body text-center">
+            <h5 class="card-title">Argilaterapia</h5>
+            <p class="card-text">A argiloterapia capilar é um tratamento natural que usa diferentes tipos de argila para purificar o couro cabeludo, desobstruindo os poros e removendo resíduos e células mortas, o que ajuda a fortalecer os fios e a combater problemas como excesso de oleosidade e queda capilar. A técnica também melhora a circulação sanguínea na região, promovendo um ambiente saudável para o crescimento capilar e a revitalização dos cabelos. </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="card">
+          <img src="img/aromaterapia.jpg" class="card-img-top" alt="Aromaterapia">
+          <div class="card-body text-center">
+            <h5 class="card-title">Aromaterapia</h5>
+            <p class="card-text">A aromaterapia capilar é um tratamento natural que usa óleos essenciais e outros extratos botânicos para promover a saúde do couro cabeludo e dos fios de cabelo, ao mesmo tempo que proporciona uma experiência relaxante. Essa técnica visa tratar problemas capilares como queda, caspa e oleosidade excessiva, através da aplicação tópica e da inalação dos óleos, que possuem propriedades terapêuticas específicas para cada condição. </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="card">
+          <img src="img/alta_frequencia.jpg" class="card-img-top" alt="Alta Frequência">
+          <div class="card-body text-center">
+            <h5 class="card-title">Alta Frequência</h5>
+            <p class="card-text">A alta frequência capilar é um tratamento estético que usa um aparelho emissor de correntes elétricas de alta frequência, que, ao contato com gases como o argônio ou neônio nos eletrodos de vidro, gera ozônio e estimula a oxigenação e circulação sanguínea do couro cabeludo. Seus benefícios incluem a redução da queda de cabelo, o controle da oleosidade, a eliminação de fungos e bactérias, e o fortalecimento dos folículos capilares, promovendo um cabelo mais saudável e resistente. </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="card">
+          <img src="img/led_terapia.jpg" class="card-img-top" alt="LED Terapia">
+          <div class="card-body text-center">
+            <h5 class="card-title">LED Terapia</h5>
+            <p class="card-text">A ledterapia capilar é um tratamento não invasivo e indolor que usa luz de baixa intensidade, principalmente vermelha, para estimular os folículos capilares, aumentar a circulação no couro cabeludo e melhorar a oxigenação e o metabolismo das células, resultando em redução da queda de cabelo, fortalecimento e crescimento de novos fios. A fotobiomodulação também pode ser combinada com outras cores de LED, como o azul, para tratar condições como caspa, e geralmente envolve o uso de dispositivos em forma de bonés ou capacetes. </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="card">
+          <img src="img/laser_terapia.jpg" class="card-img-top" alt="LASER Terapia">
+          <div class="card-body text-center">
+            <h5 class="card-title">LASER Terapia</h5>
+            <p class="card-text">A laserterapia capilar é um tratamento que utiliza luz laser de baixa intensidade (fotobioestimulação) para estimular o crescimento e fortalecimento dos cabelos, combatendo a queda e o afinamento capilar. O processo aumenta a circulação sanguínea no couro cabeludo, ativa os folículos pilosos, estimula a produção de queratina e melhora a oxigenação, resultando em fios mais fortes e saudáveis. É um tratamento não invasivo, indolor e com poucos efeitos colaterais, podendo ser eficaz em casos de queda hereditária e alopécia androgenética. </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="card">
+          <img src="img/ozonio_terapia.jpg" class="card-img-top" alt="Ozônio Terapia">
+          <div class="card-body text-center">
+            <h5 class="card-title">Ozônio Terapia</h5>
+            <p class="card-text">A ozonioterapia capilar é um tratamento que utiliza o ozônio (O₃), um "super-oxigênio", para estimular a regeneração do couro cabeludo e fortalecer os fios de cabelo. A técnica combate fungos, bactérias e oleosidade, melhora a circulação sanguínea, hidrata os fios, e auxilia no combate à queda e no crescimento capilar, tornando os cabelos mais fortes, brilhantes e saudáveis. </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="card">
+          <img src="img/cronograma_capilar.jpg" class="card-img-top" alt="Cronograma Capilar">
+          <div class="card-body text-center">
+            <h5 class="card-title">Cronograma Capilar</h5>
+            <p class="card-text">A terapia ILIB (Irradiação Intravascular do Sangue por Laser) é um procedimento não invasivo que utiliza laser de baixa intensidade para irradiar o sangue através de uma pulseira aplicada no punho, visando combater os radicais livres, melhorar a circulação, a oxigenação do sangue e fortalecer o sistema imunológico. Essa técnica tem benefícios antioxidantes e anti-inflamatórios, podendo ser utilizada como tratamento coadjuvante para diversas condições de saúde e estética, como inflamações, problemas circulatórios e respiratórios, e para promover o bem-estar e a longevidade celular.  </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="card">
+          <img src="img/ilib_terapia.jpg" class="card-img-top" alt="ILIB Terapia">
+          <div class="card-body text-center">
+            <h5 class="card-title">ILIB Terapia</h5>
+            <p class="card-text">O cronograma capilar é um plano de cuidados para o cabelo dividido em três etapas: hidratação, nutrição e reconstrução, que se alternam ao longo do tempo para repor os nutrientes, água e proteínas perdidos pelos fios. Ele funciona como um calendário que organiza esses tratamentos de acordo com as necessidades específicas de cada tipo de cabelo, visando a recuperação e manutenção da sua saúde, força e brilho. </p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
+
+  <!-- Adicione outros serviços aqui -->
+  </div>
+  <!-- Paginação -->
+  <div class="d-flex justify-content-center">
+    <nav>
+      <ul class="pagination">
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+      </ul>
+    </nav>
+  </div>
+  </div>
+
+  <!-- Rodapé -->
   <footer class="text-center">
     <p>© 2025 Estética Capilar - Todos os direitos reservados</p>
     <div>
@@ -44,5 +219,27 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Função para mudar o tema (cor de fundo)
+    function mudarTema(cor) {
+      document.body.style.backgroundColor = cor;
+      document.querySelector('.navbar').style.backgroundColor = cor;
+      document.querySelector('footer').style.backgroundColor = cor;
+
+      const buttons = document.querySelectorAll('.btn-custom, .btn-success, .btn-warning');
+      buttons.forEach(btn => {
+        btn.style.backgroundColor = cor;
+        btn.style.borderColor = cor;
+      });
+
+      let dots = document.querySelectorAll('.color-dot');
+      dots.forEach(dot => {
+        dot.classList.remove('selected');
+      });
+
+      event.target.classList.add('selected');
+    }
+  </script>
 </body>
+
 </html>

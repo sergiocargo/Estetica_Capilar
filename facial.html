@@ -1,39 +1,128 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Facial - Estética Capilar</title>
+  <title>Capilar - Estética Capilar</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
   <style>
-    body { background-color: #fff8f0; padding-top: 70px; }
-    .card { border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); }
-    .card-img-top { height: 200px; object-fit: cover; }
-    footer { background-color: #343a40; color: white; padding: 20px 0; }
-    footer a { color: white; margin: 0 10px; font-size: 1.5rem; }
+    body {
+      background-color: #fff8f0;
+      padding-top: 70px;
+    }
+
+    .card {
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-img-top {
+      height: 200px;
+      object-fit: cover;
+    }
+
+    footer {
+      background-color: #343a40;
+      color: white;
+      padding: 20px 0;
+    }
+
+    footer a {
+      color: white;
+      margin: 0 10px;
+      font-size: 1.5rem;
+    }
+
+    .color-dot {
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      cursor: pointer;
+      border: 2px solid #fff;
+      box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+      transition: transform 0.2s;
+    }
+
+    .color-dot:hover {
+      transform: scale(1.2);
+    }
+
+    .color-dot.selected {
+      border: 3px solid #000;
+    }
   </style>
 </head>
+
 <body>
 
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Estética Capilar</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="capilar.html">Capilar</a></li>
+          <li class="nav-item"><a class="nav-link" href="facial.html">Facial</a></li>
+          <li class="nav-item"><a class="nav-link" href="galerias.html">Galeria</a></li>
+          <li class="nav-item"><a class="nav-link" href="contato.html">Contato</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Bolinhas para mudar a cor -->
+  <div class="d-flex gap-2 mt-3 justify-content-center">
+    <span class="color-dot" style="background-color:#ff6f61;" title="Cor 1" onclick="mudarTema('#ff6f61')"></span>
+    <span class="color-dot" style="background-color:#f7c59f;" title="Cor 2" onclick="mudarTema('#f7c59f')"></span>
+    <span class="color-dot" style="background-color:#6fbf73;" title="Cor 3" onclick="mudarTema('#6fbf73')"></span>
+    <span class="color-dot" style="background-color:#4aa3df;" title="Cor 4" onclick="mudarTema('#4aa3df')"></span>
+  </div>
+
+  <!-- Conteúdo da página Capilar -->
   <div class="container py-5">
     <h2 class="text-center mb-4">Serviços Faciais</h2>
     <div class="row">
-      <!-- 3 cards Faciais -->
+      <!-- Card 1: Limpeza de Pele -->
       <div class="col-md-4 mb-3">
         <div class="card">
-          <img src="img/facial1.jpg" class="card-img-top" alt="Serviço Facial 1">
+          <img src="img/limpeza_pele.jpg" class="card-img-top" alt="Limpeza de Pele">
           <div class="card-body text-center">
             <h5 class="card-title">Limpeza de Pele</h5>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <a href="agendamento.html" class="btn btn-custom">Agendar</a>
+            <p class="card-text">A limpeza de pele fotónica é um tratamento estético que combina as técnicas tradicionais de limpeza facial profunda com a aplicação de luzes LED (fototerapia), com o objetivo de otimizar os resultados da extração de cravos e espinhas. As luzes (vermelha, azul, âmbar) têm ações anti-inflamatórias, bactericidas, cicatrizantes e de estímulo do colagénio, resultando numa pele mais limpa, calma, hidratada, luminosa e com recuperação acelerada das pequenas lesões causadas pela extração</p>
           </div>
         </div>
       </div>
-      <!-- Replicar para o 2º e 3º serviços -->
+      <!-- Card 2: Microagulhamento -->
+      <div class="col-md-4 mb-3">
+        <div class="card">
+          <img src="img/microagulhamento_facial.jpg" class="card-img-top" alt="Microagulhamento">
+          <div class="card-body text-center">
+            <h5 class="card-title">Microagulhamento</h5>
+            <p class="card-text">O microagulhamento facial é um tratamento estético que usa microagulhas para criar microperfurações controladas na pele, estimulando a produção natural de colágeno e elastina e a regeneração celular. Esse procedimento pode ser realizado com aparelhos como o dermaroller ou a dermapen e é utilizado para tratar condições como cicatrizes de acne, rugas, melasma, poros dilatados e melhorar a textura da pele. O microagulhamento também facilita o "drug delivery", ou seja, a penetração de ativos e substâncias terapêuticas nas camadas mais profundas da pele. </p>
+          </div>
+        </div>
+      </div>
+      <!-- Card 3: Terapia na Sobrancelha e Barba -->
+      <div class="col-md-4 mb-3">
+        <div class="card">
+          <img src="img/terapia_sobrancelha_barba.jpg" class="card-img-top" alt="Terapia na Sobrancelha e Barba">
+          <div class="card-body text-center">
+            <h5 class="card-title">Terapia na Sobrancelha e Barba</h5>
+            <p class="card-text">Terapia" para sobrancelha e barba refere-se a um conjunto de tratamentos estéticos e de saúde que visam melhorar a aparência, densidade e vitalidade dos pelos faciais, utilizando técnicas como microagulhamento para estimular o crescimento, a aplicação de substâncias terapêuticas, laserterapia, e cuidados de hidratação e relaxamento para a pele. Também pode incluir cuidados de manutenção e design, como o desenho do contorno e a hidratação da pele e dos fios. </p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
+  <!-- Rodapé -->
   <footer class="text-center">
     <p>© 2025 Estética Capilar - Todos os direitos reservados</p>
     <div>
@@ -44,5 +133,27 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Função para mudar o tema (cor de fundo)
+    function mudarTema(cor) {
+      document.body.style.backgroundColor = cor;
+      document.querySelector('.navbar').style.backgroundColor = cor;
+      document.querySelector('footer').style.backgroundColor = cor;
+
+      const buttons = document.querySelectorAll('.btn-custom, .btn-success, .btn-warning');
+      buttons.forEach(btn => {
+        btn.style.backgroundColor = cor;
+        btn.style.borderColor = cor;
+      });
+
+      let dots = document.querySelectorAll('.color-dot');
+      dots.forEach(dot => {
+        dot.classList.remove('selected');
+      });
+
+      event.target.classList.add('selected');
+    }
+  </script>
 </body>
+
 </html>
