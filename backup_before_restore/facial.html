@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Capilar - Estética Capilar</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #fff8f0;
+      padding-top: 70px;
+    }
+
+    .card {
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+    }
+
+    .card-img-top {
+      height: 200px;
+      object-fit: cover;
+      cursor: zoom-in;
+      transition: transform 0.3s;
+    }
+
+    .card-img-top:hover {
+      transform: scale(1.2);
+      z-index: 10;
+      position: relative;
+    }
+
+    footer {
+      background-color: #343a40;
+      color: white;
+      padding: 20px 0;
+    }
+
+    footer a {
+      color: white;
+      margin: 0 10px;
+      font-size: 1.5rem;
+    }
+
+    .color-dot {
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      cursor: pointer;
+      border: 2px solid #fff;
+      box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+      transition: transform 0.2s;
+    }
+
+    .color-dot:hover {
+      transform: scale(1.2);
+    }
+
+    .color-dot.selected {
+      border: 3px solid #000;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Estética Capilar</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="capilar.html">Capilar</a></li>
+          <li class="nav-item"><a class="nav-link" href="facial.html">Facial</a></li>
+          <li class="nav-item"><a class="nav-link" href="galerias.html">Galeria</a></li>
+          <li class="nav-item"><a class="nav-link" href="contato.html">Contato</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Bolinhas para mudar a cor -->
+  <div class="d-flex gap-2 mt-3 justify-content-center">
+    <span class="color-dot" style="background-color:#ff6f61;" title="Cor 1" onclick="mudarTema('#ff6f61')"></span>
+    <span class="color-dot" style="background-color:#f7c59f;" title="Cor 2" onclick="mudarTema('#f7c59f')"></span>
+    <span class="color-dot" style="background-color:#6fbf73;" title="Cor 3" onclick="mudarTema('#6fbf73')"></span>
+    <span class="color-dot" style="background-color:#4aa3df;" title="Cor 4" onclick="mudarTema('#4aa3df')"></span>
+  </div>
+
+  <!-- Carrossel de destaque acima dos cards -->
+  <div id="carouselCapilar" class="carousel slide container py-4" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="imginternet/Capilar/destaque1.jpg" class="d-block w-100" alt="Destaque 1">
+      </div>
+      <div class="carousel-item">
+        <img src="imginternet/Capilar/destaque2.jpg" class="d-block w-100" alt="Destaque 2">
+      </div>
+      <div class="carousel-item">
+        <img src="imginternet/Capilar/destaque3.jpg" class="d-block w-100" alt="Destaque 3">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselCapilar" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselCapilar" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </div>
+
+  <!-- Conteúdo da página Capilar -->
+  <div class="container py-5">
+    <h2 class="text-center mb-4">Serviços Capilares</h2>
+    <div class="row">
+      <!-- Exemplo de card com 3 imagens dentro (carrossel interno no card) -->
+      <div class="col-md-4 mb-3">
+        <div class="card">
+          <div id="carouselTricologia" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="imginternet/Capilar/Tricologia/image1.jpg" class="d-block w-100 card-img-top" alt="Tricologia 1">
+              </div>
+              <div class="carousel-item">
+                <img src="imginternet/Capilar/Tricologia/image2.jpg" class="d-block w-100 card-img-top" alt="Tricologia 2">
+              </div>
+              <div class="carousel-item">
+                <img src="imginternet/Capilar/Tricologia/image3.jpg" class="d-block w-100 card-img-top" alt="Tricologia 3">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselTricologia" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselTricologia" data-bs-slide="next">
+              <span class="carousel-control-next-icon"></span>
+            </button>
+          </div>
+          <div class="card-body text-center">
+            <h5 class="card-title">Tricologia</h5>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel mauris odio.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Repetir cards para os outros 10 serviços, mantendo o mesmo formato -->
+      <!-- Exemplo Microagulhamento -->
+      <div class="col-md-4 mb-3">
+        <div class="card">
+          <div id="carouselMicroagulhamento" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="imginternet/Capilar/Microagulhamento/imagem1.jpg" class="d-block w-100 card-img-top" alt="Microagulhamento 1">
+              </div>
+              <div class="carousel-item">
+                <img src="imginternet/Capilar/Microagulhamento/imagem2.jpg" class="d-block w-100 card-img-top" alt="Microagulhamento 2">
+              </div>
+              <div class="carousel-item">
+                <img src="imginternet/Capilar/Microagulhamento/imagem3.jpg" class="d-block w-100 card-img-top" alt="Microagulhamento 3">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselMicroagulhamento" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselMicroagulhamento" data-bs-slide="next">
+              <span class="carousel-control-next-icon"></span>
+            </button>
+          </div>
+          <div class="card-body text-center">
+            <h5 class="card-title">Microagulhamento</h5>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel mauris odio.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Adicione os outros 9 cards seguindo o mesmo padrão -->
+    </div>
+  </div>
+
+  <!-- Rodapé -->
+  <footer class="text-center">
+    <p>© 2025 Estética Capilar - Todos os direitos reservados</p>
+    <div>
+      <a href="https://wa.me/message/QDJMIC6AWYPXH1" target="_blank"><i class="bi bi-whatsapp"></i></a>
+      <a href="https://www.instagram.com" target="_blank"><i class="bi bi-instagram"></i></a>
+      <a href="mailto:contato@estetica.com" target="_blank"><i class="bi bi-envelope"></i></a>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    function mudarTema(cor) {
+      document.body.style.backgroundColor = cor;
+      document.querySelector('.navbar').style.backgroundColor = cor;
+      document.querySelector('footer').style.backgroundColor = cor;
+      let dots = document.querySelectorAll('.color-dot');
+      dots.forEach(dot => dot.classList.remove('selected'));
+      event.target.classList.add('selected');
+    }
+  </script>
+</body>
+
+</html>
