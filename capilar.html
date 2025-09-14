@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -11,16 +12,41 @@
 
   <style>
     /* ===== Geral ===== */
-    body { background-color: #fff8f0; padding-top: 70px; font-family: Arial, sans-serif; }
-    .navbar-brand { font-weight: 700; font-size: 1.3rem; }
+    body {
+      background-color: #fff8f0;
+      padding-top: 70px;
+      font-family: Arial, sans-serif;
+    }
+
+    .navbar-brand {
+      font-weight: 700;
+      font-size: 1.3rem;
+    }
 
     /* Bolinhas de tema */
-    .color-dot { width:25px; height:25px; border-radius:50%; border:2px solid #fff; box-shadow:0 0 3px rgba(0,0,0,.25); cursor:pointer; margin-left:6px; }
-    .color-dot.selected { border:3px solid #000; }
+    .color-dot {
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      border: 2px solid #fff;
+      box-shadow: 0 0 3px rgba(0, 0, 0, .25);
+      cursor: pointer;
+      margin-left: 6px;
+    }
 
-    /* ===== Banner (USANDO background-image PARA EVITAR "ZOOM" ESTRANHO) ===== */
-    #carouselCapilar { margin-top: .8rem; }
-    #carouselCapilar .carousel-item { height: 60vh; }
+    .color-dot.selected {
+      border: 3px solid #000;
+    }
+
+    /* ===== Banner ===== */
+    #carouselCapilar {
+      margin-top: .8rem;
+    }
+
+    #carouselCapilar .carousel-item {
+      height: 60vh;
+    }
+
     #carouselCapilar .banner-slide {
       width: 100%;
       height: 100%;
@@ -29,21 +55,74 @@
       background-repeat: no-repeat;
       display: block;
     }
-    #carouselCapilar .carousel-item,
-    #carouselCapilar .banner-slide { min-height: 200px; }
 
-    @media (max-width: 768px) { #carouselCapilar .carousel-item { height: 40vh; } }
-    @media (min-width: 1200px) { #carouselCapilar .carousel-item { height: 60vh; } }
+    #carouselCapilar .carousel-item,
+    #carouselCapilar .banner-slide {
+      min-height: 200px;
+    }
+
+    @media (max-width: 768px) {
+      #carouselCapilar .carousel-item {
+        height: 40vh;
+      }
+    }
+
+    @media (min-width: 1200px) {
+      #carouselCapilar .carousel-item {
+        height: 60vh;
+      }
+    }
 
     /* ===== Cards ===== */
-    .card { border-radius:10px; overflow:hidden; box-shadow:0 4px 8px rgba(0,0,0,0.12); transition: transform .25s, box-shadow .25s; cursor: pointer; }
-    .card:hover { transform: translateY(-6px) scale(1.02); box-shadow:0 12px 24px rgba(0,0,0,0.18); }
-    .card-img-top { height: 180px; object-fit: cover; width:100%; display:block; }
+    .card {
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+      transition: transform .25s, box-shadow .25s;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+    }
+
+    .card-img-top {
+      height: 180px;
+      object-fit: cover;
+      width: 100%;
+      display: block;
+    }
 
     /* ===== Lightbox ===== */
-    .lightbox { display:none; position:fixed; z-index:2000; left:0; top:0; width:100%; height:100%; background:rgba(0,0,0,0.9); align-items:center; justify-content:center; padding:20px; }
-    .lightbox img { max-width:95%; max-height:85%; border-radius:8px; }
-    .lightbox .close-x { position:absolute; top:18px; right:26px; color:#fff; font-size:36px; cursor:pointer; }
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .lightbox img {
+      max-width: 95%;
+      max-height: 85%;
+      border-radius: 8px;
+    }
+
+    .lightbox .close-x {
+      position: absolute;
+      top: 18px;
+      right: 26px;
+      color: #fff;
+      font-size: 36px;
+      cursor: pointer;
+    }
 
     /* ===== Footer ===== */
     .footer {
@@ -52,7 +131,12 @@
       padding: 25px 0;
       text-align: center;
     }
-    .footer p { margin: 0; font-size: 1rem; }
+
+    .footer p {
+      margin: 0;
+      font-size: 1rem;
+    }
+
     .footer-icons a {
       font-size: 2rem;
       transition: transform 0.3s;
@@ -60,18 +144,35 @@
       align-items: center;
       margin: 0 10px;
     }
-    .footer-icons a:hover { transform: scale(1.2); }
-    .footer-icon.whatsapp i { color: #25D366; }
-    .footer-icon.instagram i { 
+
+    .footer-icons a:hover {
+      transform: scale(1.2);
+    }
+
+    .footer-icon.whatsapp i {
+      color: #25D366;
+    }
+
+    .footer-icon.instagram i {
       background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-    .footer-icon.email i { color: #6c757d; }
-    .footer-icon.email:hover i { color: #fff; }
-    .footer-icon.email { font-size: 1.2rem; }
+
+    .footer-icon.email i {
+      color: #6c757d;
+    }
+
+    .footer-icon.email:hover i {
+      color: #fff;
+    }
+
+    .footer-icon.email {
+      font-size: 1.2rem;
+    }
   </style>
 </head>
+
 <body>
 
   <!-- Navbar -->
@@ -86,7 +187,8 @@
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="servicosMenu" role="button" data-bs-toggle="dropdown">Nossos Serviços</a>
+            <a class="nav-link dropdown-toggle" href="#" id="servicosMenu" role="button"
+              data-bs-toggle="dropdown">Nossos Serviços</a>
             <ul class="dropdown-menu" aria-labelledby="servicosMenu">
               <li><a class="dropdown-item" href="capilar.html">Capilar</a></li>
               <li><a class="dropdown-item" href="facial.html">Facial</a></li>
@@ -96,7 +198,7 @@
           <li class="nav-item"><a class="nav-link" href="contato.html">Contato</a></li>
         </ul>
 
-        <!-- Bolinhas de tema no final da navbar -->
+        <!-- Bolinhas de tema -->
         <div class="d-flex align-items-center ms-3">
           <span class="color-dot" style="background:#ff6f61" onclick="mudarTema('#ff6f61')"></span>
           <span class="color-dot" style="background:#f7c59f" onclick="mudarTema('#f7c59f')"></span>
@@ -132,80 +234,199 @@
   <div class="container py-5">
     <h2 class="text-center mb-4">Serviços Capilares</h2>
     <div class="row g-3">
-      <!-- Aqui você repete os cards -->
+
+      <!-- 1 -->
       <div class="col-md-4">
         <div class="card" data-img="imginternet/Capilar/Tricologia/image3.jpg">
           <img src="imginternet/Capilar/Tricologia/image3.jpg" class="card-img-top" alt="Tricologia">
           <div class="card-body text-center">
             <h5 class="card-title">Tricologia</h5>
-            <p class="card-text">Estuda e trata doenças que afetam os cabelos.</p>
+            <p class="card-text"> </p>
           </div>
         </div>
       </div>
-      <!-- Repete os outros cards conforme você tinha -->
-      <!-- ... -->
+
+      <!-- 2 -->
+      <div class="col-md-4">
+        <div class="card" data-img="mginternet/Capilar/Queda/image2.jpg">
+          <img src="imginternet/Capilar/Argiloterapia/img3.jpg" class="card-img-top" alt="Queda Capilar">
+          <div class="card-body text-center">
+            <h5 class="card-title">Argilaterapia</h5>
+            <p class="card-text"> </p>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div class="col-md-4">
+        <div class="card" data-img="imginternet/Capilar/Microagulhamento/image1.jpg">
+          <img src="imginternet/Capilar/Microagulhamento/imagem2.jpg" class="card-img-top" alt="Microagulhamento">
+          <div class="card-body text-center">
+            <h5 class="card-title">Microagulhamento</h5>
+            <p class="card-text"></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4 -->
+      <div class="col-md-4">
+        <div class="card" data-img="imginternet/Capilar/Laser/image1.jpg">
+          <img src="imginternet/Capilar/ILIB Terapia/img3.jpg" class="card-img-top" alt="Laser Capilar">
+          <div class="card-body text-center">
+            <h5 class="card-title">ILIB</h5>
+            <p class="card-text"></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5 -->
+      <div class="col-md-4">
+        <div class="card" data-img="imginternet/Capilar/Mesoterapia/image1.jpg">
+          <img src="imginternet/Capilar/Intradermoterapia/imagem2.jpg" class="card-img-top" alt="Mesoterapia Capilar">
+          <div class="card-body text-center">
+            <h5 class="card-title">Intradermoterapia</h5>
+            <p class="card-text"></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6 -->
+      <div class="col-md-4">
+        <div class="card" data-img="imginternet/Capilar/Hidratacao/image1.jpg">
+          <img src="imginternet/Capilar/Ozônio Terapia/img1.jpg" class="card-img-top" alt="Hidratação Capilar">
+          <div class="card-body text-center">
+            <h5 class="card-title">Ozonioterapia</h5>
+            <p class="card-text"></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7 -->
+      <div class="col-md-4">
+        <div class="card" data-img="imginternet/Capilar/Peeling/image1.jpg">
+          <img src="imginternet/Capilar/LED Terapia/img1.jpg" class="card-img-top" alt="Peeling Capilar">
+          <div class="card-body text-center">
+            <h5 class="card-title">LED Terapia</h5>
+            <p class="card-text"></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 8 -->
+      <div class="col-md-4">
+        <div class="card" data-img="imginternet/Capilar/Infusao/image1.jpg">
+          <img src="imginternet/Capilar/Aromaterapia/img3.jpeg" class="card-img-top" alt="Infusão de Ativos">
+          <div class="card-body text-center">
+            <h5 class="card-title">Aromaterapia</h5>
+            <p class="card-text"></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 9 -->
+      <div class="col-md-4">
+        <div class="card" data-img="imginternet/Capilar/Carboxiterapia/image1.jpg">
+          <img src="imginternet/Capilar/Alta Frequência/igm3.jpg" class="card-img-top" alt="Carboxiterapia">
+          <div class="card-body text-center">
+            <h5 class="card-title">Alta Frequência</h5>
+            <p class="card-text"></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 10 -->
+      <div class="col-md-4">
+        <div class="card" data-img="imginternet/Capilar/AltaFrequencia/image1.jpg">
+          <img src="imginternet/Capilar/Alta Frequência/igm1.jpg" class="card-img-top" alt="Alta Frequência">
+          <div class="card-body text-center">
+            <h5 class="card-title">Cronograma Capilar</h5>
+            <p class="card-text"></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 11 -->
+      <div class="col-md-4">
+        <div class="card" data-img="imginternet/Capilar/Nanoparticulas/image1.jpg">
+          <img src="imginternet/Capilar/Laser Capilar/img1.jpeg" class="card-img-top" alt="Nanopartículas">
+          <div class="card-body text-center">
+            <h5 class="card-title">Laser capilar</h5>
+            <p class="card-text"></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card" data-img="imginternet/Capilar/Nanoparticulas/image1.jpg">
+          <img src="imginternet/Capilar/Detox Capilar/img2.jpeg" class="card-img-top" alt="Nanopartículas">
+          <div class="card-body text-center">
+            <h5 class="card-title">Detox Capilar</h5>
+            <p class="card-text"></p>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
 
-  <!-- Lightbox -->
-  <div id="lightbox" class="lightbox" onclick="fecharLightbox()">
-    <span class="close-x" onclick="fecharLightbox()">&times;</span>
-    <img id="lightboxImg" src="" alt="Ampliada">
-  </div>
-
-  <!-- Footer -->
-  <footer class="footer text-center">
-    <p>© 2025 Estética Capilar - Todos os direitos reservados</p>
-    <div class="footer-icons d-flex justify-content-center align-items-center gap-4 mt-2">
-      <a href="https://wa.me/message/QDJMIC6AWYPXH1" target="_blank" class="footer-icon whatsapp">
-        <i class="bi bi-whatsapp"></i>
-      </a>
-      <a href="https://www.instagram.com/revitalize_terapiacapilar/" target="_blank" class="footer-icon instagram">
-        <i class="bi bi-instagram"></i>
-      </a>
-      <a href="mailto:consultoriorevitalize@gmail.com" class="footer-icon email d-flex align-items-center gap-1">
-        <i class="bi bi-envelope"></i> consultoriorevitalize@gmail.com
-      </a>
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox" onclick="fecharLightbox()">
+      <span class="close-x" onclick="fecharLightbox()">&times;</span>
+      <img id="lightboxImg" src="" alt="Ampliada">
     </div>
-  </footer>
 
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Footer -->
+    <footer class="footer text-center">
+      <p>© 2025 Estética Capilar - Todos os direitos reservados</p>
+      <div class="footer-icons d-flex justify-content-center align-items-center gap-4 mt-2">
+        <a href="https://wa.me/message/QDJMIC6AWYPXH1" target="_blank" class="footer-icon whatsapp">
+          <i class="bi bi-whatsapp"></i>
+        </a>
+        <a href="https://www.instagram.com/revitalize_terapiacapilar/" target="_blank" class="footer-icon instagram">
+          <i class="bi bi-instagram"></i>
+        </a>
+        <a href="mailto:consultoriorevitalize@gmail.com" class="footer-icon email d-flex align-items-center gap-1">
+          <i class="bi bi-envelope"></i> consultoriorevitalize@gmail.com
+        </a>
+      </div>
+    </footer>
 
-  <script>
-    // Mudar tema
-    function mudarTema(cor){
-      document.body.style.backgroundColor = cor;
-      document.querySelector('.navbar').style.backgroundColor = cor;
-      document.querySelector('footer').style.backgroundColor = cor;
-      document.querySelectorAll('.color-dot').forEach(d => d.classList.remove('selected'));
-      event.target.classList.add('selected');
-    }
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-    // Lightbox
-    document.addEventListener('DOMContentLoaded', function(){
-      document.querySelectorAll('.card').forEach(card=>{
-        card.addEventListener('click', function(e){
-          const img = card.querySelector('img');
-          if(!img) return;
-          const src = img.getAttribute('src') || card.dataset.img;
-          if(!src) return;
-          document.getElementById('lightboxImg').src = src;
-          document.getElementById('lightbox').style.display = 'flex';
-          e.stopPropagation();
+    <script>
+      // Mudar tema
+      function mudarTema(cor) {
+        document.body.style.backgroundColor = cor;
+        document.querySelector('.navbar').style.backgroundColor = cor;
+        document.querySelector('footer').style.backgroundColor = cor;
+        document.querySelectorAll('.color-dot').forEach(d => d.classList.remove('selected'));
+        event.target.classList.add('selected');
+      }
+
+      // Lightbox
+      document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('.card').forEach(card => {
+          card.addEventListener('click', function (e) {
+            const img = card.querySelector('img');
+            if (!img) return;
+            const src = img.getAttribute('src') || card.dataset.img;
+            if (!src) return;
+            document.getElementById('lightboxImg').src = src;
+            document.getElementById('lightbox').style.display = 'flex';
+            e.stopPropagation();
+          });
+        });
+        document.getElementById('lightbox').addEventListener('click', function (e) {
+          if (e.target.id === 'lightbox' || e.target.classList.contains('close-x')) fecharLightbox();
         });
       });
-      document.getElementById('lightbox').addEventListener('click', function(e){
-        if(e.target.id === 'lightbox' || e.target.classList.contains('close-x')) fecharLightbox();
-      });
-    });
 
-    function fecharLightbox(){
-      const lb = document.getElementById('lightbox');
-      if(!lb) return;
-      document.getElementById('lightboxImg').src = '';
-      lb.style.display = 'none';
-    }
-  </script>
+      function fecharLightbox() {
+        const lb = document.getElementById('lightbox');
+        if (!lb) return;
+        document.getElementById('lightboxImg').src = '';
+        lb.style.display = 'none';
+      }
+    </script>
 </body>
+
 </html>
