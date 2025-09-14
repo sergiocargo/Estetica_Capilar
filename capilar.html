@@ -1,46 +1,123 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Capilar</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    .navbar-custom { background-color: #000; color: white; position: relative; }
-    .color-dots { display: flex; gap: 5px; position: absolute; left: 50%; transform: translateX(-50%); top: 50%; transform: translate(-50%, -50%); }
-    .color-dot { width: 20px; height: 20px; border-radius: 50%; cursor: pointer; border: 1px solid #fff; }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Capilar - Estética Capilar</title>
 
-    /* Lightbox */
-    .lightbox { display: none; position: fixed; z-index: 1050; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.9); }
-    .lightbox-content { margin: 5% auto; display: block; max-width: 90%; }
-    .lightbox-close { position: absolute; top: 15px; right: 35px; color: #fff; font-size: 40px; font-weight: bold; cursor: pointer; }
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    /* ===== Geral ===== */
+    body { background-color: #fff8f0; padding-top: 70px; font-family: Arial, sans-serif; }
+    .navbar-brand { font-weight: 700; font-size: 1.3rem; }
+
+    /* Bolinhas de tema */
+    .color-dot { width:25px; height:25px; border-radius:50%; border:2px solid #fff; box-shadow:0 0 3px rgba(0,0,0,.25); cursor:pointer; margin-left:6px; }
+    .color-dot.selected { border:3px solid #000; }
+
+    /* ===== Banner (USANDO background-image PARA EVITAR "ZOOM" ESTRANHO) ===== */
+    #carouselCapilar { margin-top: .8rem; }
+    #carouselCapilar .carousel-item { height: 60vh; }
+    #carouselCapilar .banner-slide {
+      width: 100%;
+      height: 100%;
+      background-position: center center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      display: block;
+    }
+    #carouselCapilar .carousel-item,
+    #carouselCapilar .banner-slide { min-height: 200px; }
+
+    @media (max-width: 768px) { #carouselCapilar .carousel-item { height: 40vh; } }
+    @media (min-width: 1200px) { #carouselCapilar .carousel-item { height: 60vh; } }
+
+    /* ===== Cards ===== */
+    .card { border-radius:10px; overflow:hidden; box-shadow:0 4px 8px rgba(0,0,0,0.12); transition: transform .25s, box-shadow .25s; cursor: pointer; }
+    .card:hover { transform: translateY(-6px) scale(1.02); box-shadow:0 12px 24px rgba(0,0,0,0.18); }
+    .card-img-top { height: 180px; object-fit: cover; width:100%; display:block; }
+
+    /* ===== Lightbox ===== */
+    .lightbox { display:none; position:fixed; z-index:2000; left:0; top:0; width:100%; height:100%; background:rgba(0,0,0,0.9); align-items:center; justify-content:center; padding:20px; }
+    .lightbox img { max-width:95%; max-height:85%; border-radius:8px; }
+    .lightbox .close-x { position:absolute; top:18px; right:26px; color:#fff; font-size:36px; cursor:pointer; }
+
+    /* ===== Footer ===== */
+    .footer {
+      background-color: #343a40;
+      color: #fff;
+      padding: 25px 0;
+      text-align: center;
+    }
+    .footer p { margin: 0; font-size: 1rem; }
+    .footer-icons a {
+      font-size: 2rem;
+      transition: transform 0.3s;
+      display: inline-flex;
+      align-items: center;
+      margin: 0 10px;
+    }
+    .footer-icons a:hover { transform: scale(1.2); }
+    .footer-icon.whatsapp i { color: #25D366; }
+    .footer-icon.instagram i { 
+      background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .footer-icon.email i { color: #6c757d; }
+    .footer-icon.email:hover i { color: #fff; }
+    .footer-icon.email { font-size: 1.2rem; }
   </style>
 </head>
 <body>
 
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-custom p-3">
-    <div class="container-fluid">
-      <a class="navbar-brand text-white" href="index.html">Home</a>
-      <a class="nav-link text-white" href="#">Capilar</a>
-      <a class="nav-link text-white" href="facial.html">Facial</a>
-      <div class="color-dots">
-        <span class="color-dot" style="background-color:#ff6f61;" onclick="mudarTema('#ff6f61')"></span>
-        <span class="color-dot" style="background-color:#f7c59f;" onclick="mudarTema('#f7c59f')"></span>
-        <span class="color-dot" style="background-color:#6fbf73;" onclick="mudarTema('#6fbf73')"></span>
-        <span class="color-dot" style="background-color:#4aa3df;" onclick="mudarTema('#4aa3df')"></span>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Estética Capilar</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="nav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="servicosMenu" role="button" data-bs-toggle="dropdown">Nossos Serviços</a>
+            <ul class="dropdown-menu" aria-labelledby="servicosMenu">
+              <li><a class="dropdown-item" href="capilar.html">Capilar</a></li>
+              <li><a class="dropdown-item" href="facial.html">Facial</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="galerias.html">Galeria</a></li>
+          <li class="nav-item"><a class="nav-link" href="contato.html">Contato</a></li>
+        </ul>
+
+        <!-- Bolinhas de tema no final da navbar -->
+        <div class="d-flex align-items-center ms-3">
+          <span class="color-dot" style="background:#ff6f61" onclick="mudarTema('#ff6f61')"></span>
+          <span class="color-dot" style="background:#f7c59f" onclick="mudarTema('#f7c59f')"></span>
+          <span class="color-dot" style="background:#6fbf73" onclick="mudarTema('#6fbf73')"></span>
+          <span class="color-dot" style="background:#4aa3df" onclick="mudarTema('#4aa3df')"></span>
+        </div>
       </div>
     </div>
   </nav>
 
-  <!-- Carrossel -->
-  <div id="carouselCapilar" class="carousel slide my-4" data-bs-ride="carousel">
+  <!-- Banner -->
+  <div id="carouselCapilar" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="img/banner1.jpg" class="d-block w-100" alt="Banner 1">
+        <div class="banner-slide" style="background-image:url('imginternet/Capilar/Banner/img1.jpg')"></div>
       </div>
       <div class="carousel-item">
-        <img src="img/banner2.jpg" class="d-block w-100" alt="Banner 2">
+        <div class="banner-slide" style="background-image:url('imginternet/Capilar/Banner/img2.jpg')"></div>
+      </div>
+      <div class="carousel-item">
+        <div class="banner-slide" style="background-image:url('imginternet/Capilar/Banner/img3.jpg')"></div>
       </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselCapilar" data-bs-slide="prev">
@@ -51,162 +128,84 @@
     </button>
   </div>
 
-  <!-- Cards Capilar -->
+  <!-- Cards -->
   <div class="container py-5">
     <h2 class="text-center mb-4">Serviços Capilares</h2>
-    <div class="row">
-
-      <!-- Card 1: Tricologia -->
-      <div class="col-md-4 mb-3">
-        <div class="card">
-          <img src="imginternet/Capilar/Tricologia/image3.jpg" class="card-img-top zoom-img" alt="Tricologia">
+    <div class="row g-3">
+      <!-- Aqui você repete os cards -->
+      <div class="col-md-4">
+        <div class="card" data-img="imginternet/Capilar/Tricologia/image3.jpg">
+          <img src="imginternet/Capilar/Tricologia/image3.jpg" class="card-img-top" alt="Tricologia">
           <div class="card-body text-center">
             <h5 class="card-title">Tricologia</h5>
-            <p class="card-text">A tricologia é a especialidade médica, dentro da dermatologia, que estuda, diagnostica e trata as doenças e problemas que afetam os cabelos...</p>
+            <p class="card-text">Estuda e trata doenças que afetam os cabelos.</p>
           </div>
         </div>
       </div>
-
-      <!-- Card 2: Microagulhamento -->
-      <div class="col-md-4 mb-3">
-        <div class="card">
-          <img src="imginternet/Capilar/Microagulhamento/imagem2.jpg" class="card-img-top zoom-img" alt="Microagulhamento">
-          <div class="card-body text-center">
-            <h5 class="card-title">Microagulhamento</h5>
-            <p class="card-text">O microagulhamento é uma técnica dermatológica e estética que consiste em criar microperfurações na pele...</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 3: Intradermoterapia -->
-      <div class="col-md-4 mb-3">
-        <div class="card">
-          <img src="imginternet/Capilar/Intradermoterapia/imagem1.jpg" class="card-img-top zoom-img" alt="Intradermoterapia">
-          <div class="card-body text-center">
-            <h5 class="card-title">Intradermoterapia</h5>
-            <p class="card-text">A intradermoterapia capilar, ou mesoterapia capilar, é um tratamento para a queda de cabelo que utiliza microinjeções...</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 4: Argilaterapia -->
-      <div class="col-md-4 mb-3">
-        <div class="card">
-          <img src="./imginternet/Capilar/Argiloterapia/img1.jpg" class="card-img-top zoom-img" alt="Argilaterapia">
-          <div class="card-body text-center">
-            <h5 class="card-title">Argilaterapia</h5>
-            <p class="card-text">A argiloterapia capilar é um tratamento natural que usa diferentes tipos de argila para purificar o couro cabeludo...</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 5: Aromaterapia -->
-      <div class="col-md-4 mb-3">
-        <div class="card">
-          <img src="img/aromaterapia.jpg" class="card-img-top zoom-img" alt="Aromaterapia">
-          <div class="card-body text-center">
-            <h5 class="card-title">Aromaterapia</h5>
-            <p class="card-text">A aromaterapia capilar é um tratamento natural que usa óleos essenciais e outros extratos botânicos para promover a saúde do couro cabeludo...</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 6: Alta Frequência -->
-      <div class="col-md-4 mb-3">
-        <div class="card">
-          <img src="img/alta_frequencia.jpg" class="card-img-top zoom-img" alt="Alta Frequência">
-          <div class="card-body text-center">
-            <h5 class="card-title">Alta Frequência</h5>
-            <p class="card-text">A alta frequência capilar é um tratamento estético que usa um aparelho emissor de correntes elétricas de alta frequência...</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 7: LED Terapia -->
-      <div class="col-md-4 mb-3">
-        <div class="card">
-          <img src="img/led_terapia.jpg" class="card-img-top zoom-img" alt="LED Terapia">
-          <div class="card-body text-center">
-            <h5 class="card-title">LED Terapia</h5>
-            <p class="card-text">A ledterapia capilar é um tratamento não invasivo e indolor que usa luz de baixa intensidade para estimular os folículos capilares...</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 8: LASER Terapia -->
-      <div class="col-md-4 mb-3">
-        <div class="card">
-          <img src="img/laser_terapia.jpg" class="card-img-top zoom-img" alt="LASER Terapia">
-          <div class="card-body text-center">
-            <h5 class="card-title">LASER Terapia</h5>
-            <p class="card-text">A laserterapia capilar é um tratamento que utiliza luz laser de baixa intensidade para estimular o crescimento e fortalecimento dos cabelos...</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 9: Ozônio Terapia -->
-      <div class="col-md-4 mb-3">
-        <div class="card">
-          <img src="img/ozonio_terapia.jpg" class="card-img-top zoom-img" alt="Ozônio Terapia">
-          <div class="card-body text-center">
-            <h5 class="card-title">Ozônio Terapia</h5>
-            <p class="card-text">A ozonioterapia capilar é um tratamento que utiliza o ozônio para estimular a regeneração do couro cabeludo e fortalecer os fios de cabelo...</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 10: Cronograma Capilar -->
-      <div class="col-md-4 mb-3">
-        <div class="card">
-          <img src="img/cronograma_capilar.jpg" class="card-img-top zoom-img" alt="Cronograma Capilar">
-          <div class="card-body text-center">
-            <h5 class="card-title">Cronograma Capilar</h5>
-            <p class="card-text">A terapia ILIB (Irradiação Intravascular do Sangue por Laser) é um procedimento não invasivo que utiliza laser de baixa intensidade...</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 11: ILIB Terapia -->
-      <div class="col-md-4 mb-3">
-        <div class="card">
-          <img src="img/ilib_terapia.jpg" class="card-img-top zoom-img" alt="ILIB Terapia">
-          <div class="card-body text-center">
-            <h5 class="card-title">ILIB Terapia</h5>
-            <p class="card-text">O cronograma capilar é um plano de cuidados para o cabelo dividido em três etapas: hidratação, nutrição e reconstrução...</p>
-          </div>
-        </div>
-      </div>
-
+      <!-- Repete os outros cards conforme você tinha -->
+      <!-- ... -->
     </div>
   </div>
 
   <!-- Lightbox -->
-  <div id="lightbox" class="lightbox">
-    <span class="lightbox-close" onclick="fecharLightbox()">&times;</span>
-    <img class="lightbox-content" id="lightbox-img">
+  <div id="lightbox" class="lightbox" onclick="fecharLightbox()">
+    <span class="close-x" onclick="fecharLightbox()">&times;</span>
+    <img id="lightboxImg" src="" alt="Ampliada">
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Footer -->
+  <footer class="footer text-center">
+    <p>© 2025 Estética Capilar - Todos os direitos reservados</p>
+    <div class="footer-icons d-flex justify-content-center align-items-center gap-4 mt-2">
+      <a href="https://wa.me/message/QDJMIC6AWYPXH1" target="_blank" class="footer-icon whatsapp">
+        <i class="bi bi-whatsapp"></i>
+      </a>
+      <a href="https://www.instagram.com/revitalize_terapiacapilar/" target="_blank" class="footer-icon instagram">
+        <i class="bi bi-instagram"></i>
+      </a>
+      <a href="mailto:consultoriorevitalize@gmail.com" class="footer-icon email d-flex align-items-center gap-1">
+        <i class="bi bi-envelope"></i> consultoriorevitalize@gmail.com
+      </a>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
   <script>
-    function mudarTema(cor) {
+    // Mudar tema
+    function mudarTema(cor){
       document.body.style.backgroundColor = cor;
+      document.querySelector('.navbar').style.backgroundColor = cor;
+      document.querySelector('footer').style.backgroundColor = cor;
+      document.querySelectorAll('.color-dot').forEach(d => d.classList.remove('selected'));
+      event.target.classList.add('selected');
     }
 
-    const imagens = document.querySelectorAll('.zoom-img');
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img');
-
-    imagens.forEach(img => {
-      img.addEventListener('click', () => {
-        lightbox.style.display = 'block';
-        lightboxImg.src = img.src;
+    // Lightbox
+    document.addEventListener('DOMContentLoaded', function(){
+      document.querySelectorAll('.card').forEach(card=>{
+        card.addEventListener('click', function(e){
+          const img = card.querySelector('img');
+          if(!img) return;
+          const src = img.getAttribute('src') || card.dataset.img;
+          if(!src) return;
+          document.getElementById('lightboxImg').src = src;
+          document.getElementById('lightbox').style.display = 'flex';
+          e.stopPropagation();
+        });
+      });
+      document.getElementById('lightbox').addEventListener('click', function(e){
+        if(e.target.id === 'lightbox' || e.target.classList.contains('close-x')) fecharLightbox();
       });
     });
 
-    function fecharLightbox() {
-      lightbox.style.display = 'none';
+    function fecharLightbox(){
+      const lb = document.getElementById('lightbox');
+      if(!lb) return;
+      document.getElementById('lightboxImg').src = '';
+      lb.style.display = 'none';
     }
   </script>
-
 </body>
 </html>

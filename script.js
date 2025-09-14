@@ -22,3 +22,11 @@ function mudarTema(cor) {
   // Marca a bolinha clicada com a borda
   event.target.classList.add('selected');
 }
+function mudarTema(cor, el){
+  document.body.style.backgroundColor = cor;
+  const nav = document.querySelector('.navbar'); if(nav) nav.style.backgroundColor = cor;
+  const footer = document.querySelector('footer'); if(footer) footer.style.backgroundColor = cor;
+  
+  document.querySelectorAll('.color-dot').forEach(d => d.classList.remove('selected'));
+  if(el) el.classList.add('selected');
+}
